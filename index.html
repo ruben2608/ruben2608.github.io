@@ -3,110 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TecnoSur | Informática y reparación</title>
+  <meta name="description"
+        content="TecnoSur: proyecto educativo de una tienda y taller
+        de informática de Granada en proceso de digitalización.">
+
+  <title>TecnoSur | Tecnología cerca de ti</title>
 
   <style>
+    /* COLORES Y ESTILOS GENERALES */
+    :root {
+      --fondo: #f5f7fa;
+      --oscuro: #152c38;
+      --verde: #b8ef65;
+      --texto: #263c48;
+      --gris: #536773;
+      --borde: #dce3e8;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 24px;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #253247;
-      background-color: #f4f6fa;
-      line-height: 1.6;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
     }
 
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #287259;
+      outline-offset: 5px;
+    }
+
+    .contenedor {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* CABECERA */
     header {
-      background-color: #16324f;
-      color: white;
-      padding: 20px;
+      background: white;
+      border-bottom: 1px solid var(--borde);
     }
 
     .cabecera {
-      max-width: 1000px;
-      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      flex-wrap: wrap;
+      padding: 20px 0;
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: bold;
-      color: white;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -1px;
       text-decoration: none;
     }
 
     .logo span {
-      color: #65d6c5;
+      color: #397657;
     }
 
     nav {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 22px;
     }
 
     nav a {
-      color: white;
+      font-size: 14px;
+      font-weight: bold;
       text-decoration: none;
     }
 
     nav a:hover {
+      color: #397657;
       text-decoration: underline;
     }
 
+    /* PRESENTACIÓN */
     .portada {
-      padding: 75px 20px;
-      text-align: center;
-      background-color: #e2edf7;
+      background: var(--oscuro);
+      color: white;
+      padding: 75px 0;
     }
 
-    .portada h1 {
-      font-size: clamp(30px, 5vw, 44px);
-      line-height: 1.2;
+    .portada-interior {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--verde);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
       margin: 0 0 20px;
-      color: #16324f;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: var(--verde);
     }
 
     .portada p {
-      max-width: 620px;
-      margin: 0 auto 28px;
+      max-width: 510px;
+      color: #d1dce2;
+      font-size: 17px;
     }
 
     .boton {
       display: inline-block;
-      padding: 12px 24px;
-      background-color: #176b60;
-      color: white;
-      border: none;
-      border-radius: 6px;
+      margin-top: 18px;
+      padding: 13px 22px;
+      border-radius: 8px;
+      background: var(--verde);
+      color: var(--oscuro);
+      font-weight: bold;
       text-decoration: none;
-      font: inherit;
-      cursor: pointer;
+      transition: transform 0.2s;
     }
 
     .boton:hover {
-      background-color: #105248;
+      transform: translateY(-3px);
     }
 
-    section {
-      max-width: 1000px;
+    /* ILUSTRACIÓN HECHA CON CSS */
+    .ordenador {
+      width: 100%;
+      max-width: 370px;
       margin: auto;
-      padding: 45px 20px;
+    }
+
+    .pantalla {
+      padding: 26px;
+      border: 10px solid #526a79;
+      border-bottom-width: 18px;
+      border-radius: 18px;
+      background: #203d4b;
+      box-shadow: 18px 18px 0 #1b3542;
+    }
+
+    .puntos {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 25px;
+    }
+
+    .puntos i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--verde);
+    }
+
+    .pantalla strong {
+      display: block;
+      color: var(--verde);
+      font-size: 25px;
+    }
+
+    .pantalla small {
+      color: #d1dce2;
+    }
+
+    .linea {
+      height: 8px;
+      margin-top: 15px;
+      border-radius: 5px;
+      background: #66818e;
+    }
+
+    .linea.corta {
+      width: 65%;
+      background: var(--verde);
+    }
+
+    .pie-monitor {
+      width: 65px;
+      height: 35px;
+      margin: auto;
+      background: #526a79;
+    }
+
+    .base-monitor {
+      width: 170px;
+      height: 12px;
+      margin: auto;
+      border-radius: 10px;
+      background: #8298a4;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 65px 0;
+    }
+
+    .numero {
+      color: #397657;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     h2 {
-      color: #16324f;
-      margin-top: 0;
+      margin: 8px 0 15px;
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    h3 {
+      margin: 12px 0 8px;
+      font-size: 20px;
+    }
+
+    .introduccion {
+      max-width: 700px;
+      margin-bottom: 30px;
+      color: var(--gris);
+    }
+
+    .dos-columnas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .ficha {
+      padding: 25px;
+      border-left: 4px solid #77af46;
+      border-radius: 0 12px 12px 0;
+      background: #e9efdf;
+    }
+
+    .ficha p {
+      margin: 8px 0;
+    }
+
+    .blanco {
+      background: white;
     }
 
     .tarjetas {
@@ -116,317 +277,445 @@
     }
 
     .tarjeta {
-      padding: 24px;
-      background-color: white;
-      border: 1px solid #dce3eb;
+      padding: 27px;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      background: white;
+    }
+
+    .tarjeta p {
+      margin-bottom: 0;
+      color: var(--gris);
+    }
+
+    .distintivo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
+      background: #eaf4db;
+      color: #34572d;
+      font-weight: bold;
     }
 
-    .tarjeta h3 {
-      margin-top: 0;
-      color: #176b60;
-    }
-
-    .proyecto {
-      padding: 25px;
-      border-left: 5px solid #176b60;
-      background-color: #e5f3ef;
-      border-radius: 6px;
-    }
-
-    .proyecto li {
-      margin-bottom: 8px;
-    }
-
-    .contacto {
+    /* PLAN DE DIGITALIZACIÓN */
+    .paso {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      grid-template-columns: 45px 1fr;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--borde);
     }
 
-    form {
-      padding: 25px;
-      background-color: white;
-      border: 1px solid #dce3eb;
+    .paso h3 {
+      margin-top: 0;
+    }
+
+    .paso p {
+      margin: 0;
+      color: var(--gris);
+    }
+
+    .estado {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #e6eddf;
+      color: #36532c;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* PROYECTOS AMPLIABLES */
+    details {
+      margin-bottom: 12px;
+      padding: 18px 22px;
+      border: 1px solid var(--borde);
       border-radius: 10px;
+      background: white;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
+    summary {
+      cursor: pointer;
       font-weight: bold;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border: 1px solid #a7b4c4;
-      border-radius: 5px;
-      font: inherit;
-      background-color: white;
+    details p {
+      margin-bottom: 0;
+      color: var(--gris);
     }
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid #b46a00;
-      outline-offset: 3px;
-    }
-
-    .aviso {
-      font-size: 14px;
-      color: #536174;
-    }
-
-    #resultado {
-      color: #176b60;
-      font-weight: bold;
-    }
-
-    footer {
-      padding: 25px 20px;
-      text-align: center;
-      background-color: #16324f;
+    .cierre {
+      padding: 35px;
+      border-radius: 16px;
+      background: var(--oscuro);
       color: white;
     }
 
-    footer p {
-      margin: 5px 0;
+    .cierre p {
+      color: #d1dce2;
     }
 
-    @media (max-width: 700px) {
-      .tarjetas,
-      .contacto {
-        grid-template-columns: 1fr;
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--borde);
+      color: var(--gris);
+      font-size: 13px;
+    }
+
+    .pie {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ADAPTACIÓN A MÓVILES */
+    @media (max-width: 760px) {
+      .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 12px 18px;
       }
 
       .portada {
-        padding: 50px 20px;
+        padding: 45px 0;
+      }
+
+      .portada-interior,
+      .dos-columnas,
+      .tarjetas {
+        grid-template-columns: 1fr;
+      }
+
+      .portada-interior {
+        gap: 40px;
+      }
+
+      section {
+        padding: 45px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .boton {
+        transition: none;
+      }
+
+      .boton:hover {
+        transform: none;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="cabecera">
-      <a class="logo" href="#inicio">Tecno<span>Sur</span></a>
 
-      <nav aria-label="Menú principal">
-        <a href="#nosotros">La empresa</a>
+  <!-- CABECERA Y NAVEGACIÓN -->
+  <header id="inicio">
+    <div class="contenedor cabecera">
+      <a class="logo" href="#inicio" aria-label="TecnoSur, inicio">
+        Tecno<span>Sur.</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#empresa">Empresa</a>
         <a href="#servicios">Servicios</a>
         <a href="#digitalizacion">Digitalización</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#proyectos">Proyectos</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="portada" id="inicio">
-      <h1>Tu tecnología, en buenas manos</h1>
-      <p>
-        Venta, mantenimiento y reparación de equipos informáticos
-        para particulares y pequeños negocios de Granada.
-      </p>
-      <a href="#contacto" class="boton">Solicitar información</a>
-    </div>
 
-    <section id="nosotros">
-      <h2>Sobre nuestra empresa</h2>
-      <p>
-        TecnoSur es una pequeña tienda de informática de Granada
-        formada por cuatro profesionales. Vendemos ordenadores y
-        accesorios, reparamos equipos y ayudamos a pequeños negocios
-        a mantener sus sistemas informáticos.
-      </p>
-      <p>
-        Hasta ahora, gestionamos las citas por teléfono, registramos
-        las reparaciones en papel y controlamos las existencias con
-        hojas de cálculo. Queremos digitalizar estos procesos para
-        trabajar mejor y ofrecer una atención más rápida.
-      </p>
-    </section>
-
-    <section id="servicios">
-      <h2>Nuestros servicios</h2>
-
-      <div class="tarjetas">
-        <article class="tarjeta">
-          <h3>Venta de equipos</h3>
-          <p>
-            Ordenadores, periféricos y accesorios adaptados a tus
-            necesidades de estudio, trabajo y ocio.
-          </p>
-        </article>
-
-        <article class="tarjeta">
-          <h3>Reparación y mantenimiento</h3>
-          <p>
-            Diagnóstico de averías, sustitución de componentes,
-            limpieza y puesta a punto de ordenadores.
-          </p>
-        </article>
-
-        <article class="tarjeta">
-          <h3>Soporte a empresas</h3>
-          <p>
-            Instalación de redes, configuración de equipos y
-            mantenimiento informático para pequeños negocios.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="digitalizacion">
-      <h2>Nuestro proyecto de digitalización</h2>
-
-      <div class="proyecto">
-        <p>
-          Esta página es el primer paso de nuestra transformación
-          digital. Las siguientes mejoras que queremos desarrollar son:
-        </p>
-
-        <ul>
-          <li>
-            <strong>Catálogo y tienda online:</strong>
-            mostrar productos y gestionar pedidos por Internet.
-          </li>
-          <li>
-            <strong>Inventario digital:</strong>
-            controlar las existencias y los pedidos a proveedores.
-          </li>
-          <li>
-            <strong>Citas online:</strong>
-            reservar una visita al servicio técnico.
-          </li>
-          <li>
-            <strong>Seguimiento de reparaciones:</strong>
-            consultar el estado de cada equipo.
-          </li>
-          <li>
-            <strong>Gestión de clientes y facturas:</strong>
-            organizar presupuestos, ventas y documentación.
-          </li>
-          <li>
-            <strong>Ciberseguridad:</strong>
-            proteger los datos y establecer copias de seguridad.
-          </li>
-          <li>
-            <strong>Análisis de datos:</strong>
-            estudiar ventas, productos demandados y tiempos de reparación.
-          </li>
-          <li>
-            <strong>Sostenibilidad:</strong>
-            reducir el papel y registrar la reutilización y el reciclaje
-            de componentes.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacta con nosotros</h2>
-
-      <div class="contacto">
+    <!-- PRESENTACIÓN -->
+    <section class="portada" aria-labelledby="titulo">
+      <div class="contenedor portada-interior">
         <div>
-          <h3>Cuéntanos qué necesitas</h3>
+          <span class="etiqueta">Informática · Granada</span>
+
+          <h1 id="titulo">
+            Tu tecnología.<br>
+            Nuestro próximo<br>
+            <span>paso digital.</span>
+          </h1>
+
           <p>
-            ¿Buscas un ordenador o necesitas reparar el tuyo?
-            Rellena el formulario para probar cómo sería una solicitud.
+            Vendemos, reparamos y damos una segunda vida a tus equipos.
+            Ahora queremos transformar nuestra forma de trabajar para
+            ofrecer un servicio más rápido, conectado y sostenible.
           </p>
 
-          <p><strong>Ubicación:</strong> Granada, España.</p>
-          <p>
-            <strong>Horario:</strong>
-            lunes a viernes, de 9:00 a 14:00 y de 17:00 a 20:00.
-          </p>
-
-          <p class="aviso">
-            Empresa ficticia creada para la asignatura de Digitalización.
-            Los servicios y horarios son ilustrativos.
-          </p>
+          <a class="boton" href="#digitalizacion">
+            Descubre nuestro plan &rarr;
+          </a>
         </div>
 
-        <form id="formulario">
-          <label for="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            placeholder="Tu nombre"
-            autocomplete="given-name"
-            required
-          >
-
-          <label for="email">Correo electrónico</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="nombre@ejemplo.com"
-            autocomplete="email"
-            required
-          >
-
-          <label for="servicio">¿Qué necesitas?</label>
-          <select id="servicio" name="servicio" required>
-            <option value="">Selecciona un servicio</option>
-            <option value="venta">Comprar un equipo</option>
-            <option value="reparacion">Reparar un equipo</option>
-            <option value="soporte">Soporte para mi empresa</option>
-            <option value="consulta">Otra consulta</option>
-          </select>
-
-          <label for="mensaje">Mensaje</label>
-          <textarea
-            id="mensaje"
-            name="mensaje"
-            placeholder="Explica brevemente tu consulta"
-            required
-          ></textarea>
-
-          <p class="aviso">
-            Formulario de demostración. No envía ni almacena datos.
-          </p>
-
-          <button type="submit" class="boton">
-            Probar solicitud
-          </button>
-
-          <p id="resultado" role="status"></p>
-        </form>
+        <div class="ordenador" aria-hidden="true">
+          <div class="pantalla">
+            <div class="puntos">
+              <i></i><i></i><i></i>
+            </div>
+            <strong>TecnoSur.</strong>
+            <small>Conectando con el futuro</small>
+            <div class="linea"></div>
+            <div class="linea corta"></div>
+            <div class="linea"></div>
+          </div>
+          <div class="pie-monitor"></div>
+          <div class="base-monitor"></div>
+        </div>
       </div>
     </section>
+
+    <!-- INFORMACIÓN DE LA EMPRESA -->
+    <section id="empresa">
+      <div class="contenedor">
+        <span class="numero">01 / La empresa</span>
+        <h2>Un negocio cercano con ganas de crecer.</h2>
+
+        <div class="dos-columnas">
+          <div>
+            <p>
+              TecnoSur es una pequeña empresa ficticia situada en
+              Granada. Se dedica a la venta de material informático,
+              la reparación de ordenadores y el mantenimiento de
+              equipos para particulares y pequeños negocios.
+            </p>
+
+            <p>
+              Su equipo está formado por cinco personas: una responsable,
+              dos técnicos de reparación, una persona de ventas y una
+              encargada de administración.
+            </p>
+
+            <p>
+              La empresa quiere digitalizarse para organizar mejor su
+              trabajo, reducir errores y llegar a nuevos clientes.
+            </p>
+          </div>
+
+          <aside class="ficha" aria-label="Situación actual">
+            <h3>¿Cómo trabajamos actualmente?</h3>
+            <p><strong>Ventas:</strong> principalmente en tienda.</p>
+            <p><strong>Reparaciones:</strong> registradas en papel.</p>
+            <p><strong>Inventario:</strong> hojas de cálculo manuales.</p>
+            <p><strong>Citas:</strong> por teléfono o en el local.</p>
+            <p><strong>Documentación:</strong> repartida entre equipos.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="blanco">
+      <div class="contenedor">
+        <span class="numero">02 / Qué hacemos</span>
+        <h2>Soluciones para el día a día.</h2>
+
+        <p class="introduccion">
+          Tres áreas de trabajo que servirán como base para
+          desarrollar nuevos servicios digitales.
+        </p>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <span class="distintivo" aria-hidden="true">01</span>
+            <h3>Venta de equipos</h3>
+            <p>
+              Ordenadores, periféricos y componentes. Asesoramos
+              a cada cliente para encontrar el equipo que necesita.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <span class="distintivo" aria-hidden="true">02</span>
+            <h3>Reparación y mejora</h3>
+            <p>
+              Diagnóstico de averías, limpieza, sustitución de
+              componentes y ampliación de memoria y almacenamiento.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <span class="distintivo" aria-hidden="true">03</span>
+            <h3>Soporte a negocios</h3>
+            <p>
+              Mantenimiento de equipos, instalación de programas
+              y configuración de pequeñas redes de oficina.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN DE DIGITALIZACIÓN -->
+    <section id="digitalizacion">
+      <div class="contenedor">
+        <span class="numero">03 / Nuestro cambio</span>
+        <h2>Del papel a una empresa conectada.</h2>
+
+        <p class="introduccion">
+          Este es nuestro plan de transformación. La web es el primer
+          paso; las siguientes mejoras se desarrollarán progresivamente.
+        </p>
+
+        <div class="paso">
+          <span class="distintivo" aria-hidden="true">1</span>
+          <div>
+            <h3>Crear presencia en Internet</h3>
+            <p>
+              Presentar la empresa y sus servicios mediante esta web.
+              Más adelante, incorporar un catálogo de productos.
+            </p>
+            <span class="estado">Prototipo actual</span>
+          </div>
+        </div>
+
+        <div class="paso">
+          <span class="distintivo" aria-hidden="true">2</span>
+          <div>
+            <h3>Centralizar la información</h3>
+            <p>
+              Diseñar una base de datos para clientes, productos,
+              proveedores y reparaciones, evitando registros duplicados.
+            </p>
+            <span class="estado">Próxima fase</span>
+          </div>
+        </div>
+
+        <div class="paso">
+          <span class="distintivo" aria-hidden="true">3</span>
+          <div>
+            <h3>Digitalizar la atención al cliente</h3>
+            <p>
+              Permitir solicitar citas y consultar el estado de una
+              reparación sin tener que llamar a la tienda.
+            </p>
+            <span class="estado">Planificado</span>
+          </div>
+        </div>
+
+        <div class="paso">
+          <span class="distintivo" aria-hidden="true">4</span>
+          <div>
+            <h3>Proteger los datos y trabajar mejor</h3>
+            <p>
+              Configurar permisos de acceso, copias de seguridad
+              y una red segura. Reducir el uso de papel y registrar
+              la reutilización y el reciclaje de componentes.
+            </p>
+            <span class="estado">Planificado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTUROS PROYECTOS -->
+    <section id="proyectos" class="blanco">
+      <div class="contenedor">
+        <span class="numero">04 / Durante el curso</span>
+        <h2>Una empresa. Muchos proyectos posibles.</h2>
+
+        <p class="introduccion">
+          Pulsa en cada apartado para descubrir cómo podemos
+          seguir desarrollando TecnoSur.
+        </p>
+
+        <details>
+          <summary>Base de datos e inventario</summary>
+          <p>
+            Diseñar un modelo entidad-relación con clientes,
+            productos, proveedores, ventas y reparaciones.
+            Crear después una base de datos para consultar
+            existencias y detectar productos con poco stock.
+          </p>
+        </details>
+
+        <details>
+          <summary>Tienda online y catálogo</summary>
+          <p>
+            Incorporar fichas de productos, categorías, buscador
+            y carrito. En una fase posterior, conectar pedidos
+            y existencias con la base de datos.
+          </p>
+        </details>
+
+        <details>
+          <summary>Citas y seguimiento de reparaciones</summary>
+          <p>
+            Crear un sistema para solicitar cita y registrar
+            equipos. Gestionar estados como recibido,
+            en diagnóstico, en reparación y listo para recoger.
+          </p>
+        </details>
+
+        <details>
+          <summary>Red local, usuarios y seguridad</summary>
+          <p>
+            Diseñar la red de la tienda y del taller, separar
+            el acceso de invitados y definir permisos según
+            el puesto de cada trabajador.
+          </p>
+        </details>
+
+        <details>
+          <summary>Copias de seguridad y documentación compartida</summary>
+          <p>
+            Planificar copias automáticas, probar la recuperación
+            de archivos y organizar documentos compartidos
+            para que el equipo trabaje de forma coordinada.
+          </p>
+        </details>
+
+        <details>
+          <summary>Sostenibilidad y análisis de resultados</summary>
+          <p>
+            Medir el consumo de papel, los equipos reparados,
+            los componentes reutilizados y los tiempos de reparación.
+            Mostrar estos indicadores en un panel de seguimiento.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section>
+      <div class="contenedor">
+        <div class="cierre">
+          <span class="etiqueta">Nuestro objetivo</span>
+          <h2>Más organización. Mejor servicio.</h2>
+          <p>
+            Queremos dedicar menos tiempo a tareas manuales
+            y más tiempo a resolver las necesidades de nuestros
+            clientes. Esta web es el comienzo de ese cambio.
+          </p>
+          <a class="boton" href="#proyectos">
+            Explorar los próximos proyectos &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p><strong>TecnoSur · Informática y reparación</strong></p>
-    <p>Proyecto educativo · Digitalización · ASIR</p>
+    <div class="contenedor pie">
+      <span><strong>TecnoSur.</strong> Proyecto de Digitalización.</span>
+      <span>Empresa ficticia · Curso 2026–2027</span>
+    </div>
   </footer>
 
-  <script>
-    const formulario = document.getElementById("formulario");
-    const resultado = document.getElementById("resultado");
-
-    formulario.addEventListener("submit", function (evento) {
-      evento.preventDefault();
-
-      resultado.textContent =
-        "Prueba completada. En una futura versión, esta solicitud " +
-        "se enviará a la empresa. Ahora no se ha enviado ni guardado.";
-
-      formulario.reset();
-    });
-  </script>
 </body>
 </html>
