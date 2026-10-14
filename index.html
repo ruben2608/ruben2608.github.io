@@ -1,1 +1,432 @@
-<h1>Hola me llamo Rubén</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TecnoSur | Informática y reparación</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #253247;
+      background-color: #f4f6fa;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #16324f;
+      color: white;
+      padding: 20px;
+    }
+
+    .cabecera {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #65d6c5;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .portada {
+      padding: 75px 20px;
+      text-align: center;
+      background-color: #e2edf7;
+    }
+
+    .portada h1 {
+      font-size: clamp(30px, 5vw, 44px);
+      line-height: 1.2;
+      margin: 0 0 20px;
+      color: #16324f;
+    }
+
+    .portada p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #176b60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background-color: #105248;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    h2 {
+      color: #16324f;
+      margin-top: 0;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .tarjeta {
+      padding: 24px;
+      background-color: white;
+      border: 1px solid #dce3eb;
+      border-radius: 10px;
+    }
+
+    .tarjeta h3 {
+      margin-top: 0;
+      color: #176b60;
+    }
+
+    .proyecto {
+      padding: 25px;
+      border-left: 5px solid #176b60;
+      background-color: #e5f3ef;
+      border-radius: 6px;
+    }
+
+    .proyecto li {
+      margin-bottom: 8px;
+    }
+
+    .contacto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    form {
+      padding: 25px;
+      background-color: white;
+      border: 1px solid #dce3eb;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #a7b4c4;
+      border-radius: 5px;
+      font: inherit;
+      background-color: white;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #b46a00;
+      outline-offset: 3px;
+    }
+
+    .aviso {
+      font-size: 14px;
+      color: #536174;
+    }
+
+    #resultado {
+      color: #176b60;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 25px 20px;
+      text-align: center;
+      background-color: #16324f;
+      color: white;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 700px) {
+      .tarjetas,
+      .contacto {
+        grid-template-columns: 1fr;
+      }
+
+      .portada {
+        padding: 50px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="cabecera">
+      <a class="logo" href="#inicio">Tecno<span>Sur</span></a>
+
+      <nav aria-label="Menú principal">
+        <a href="#nosotros">La empresa</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#digitalizacion">Digitalización</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="portada" id="inicio">
+      <h1>Tu tecnología, en buenas manos</h1>
+      <p>
+        Venta, mantenimiento y reparación de equipos informáticos
+        para particulares y pequeños negocios de Granada.
+      </p>
+      <a href="#contacto" class="boton">Solicitar información</a>
+    </div>
+
+    <section id="nosotros">
+      <h2>Sobre nuestra empresa</h2>
+      <p>
+        TecnoSur es una pequeña tienda de informática de Granada
+        formada por cuatro profesionales. Vendemos ordenadores y
+        accesorios, reparamos equipos y ayudamos a pequeños negocios
+        a mantener sus sistemas informáticos.
+      </p>
+      <p>
+        Hasta ahora, gestionamos las citas por teléfono, registramos
+        las reparaciones en papel y controlamos las existencias con
+        hojas de cálculo. Queremos digitalizar estos procesos para
+        trabajar mejor y ofrecer una atención más rápida.
+      </p>
+    </section>
+
+    <section id="servicios">
+      <h2>Nuestros servicios</h2>
+
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Venta de equipos</h3>
+          <p>
+            Ordenadores, periféricos y accesorios adaptados a tus
+            necesidades de estudio, trabajo y ocio.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Reparación y mantenimiento</h3>
+          <p>
+            Diagnóstico de averías, sustitución de componentes,
+            limpieza y puesta a punto de ordenadores.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Soporte a empresas</h3>
+          <p>
+            Instalación de redes, configuración de equipos y
+            mantenimiento informático para pequeños negocios.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="digitalizacion">
+      <h2>Nuestro proyecto de digitalización</h2>
+
+      <div class="proyecto">
+        <p>
+          Esta página es el primer paso de nuestra transformación
+          digital. Las siguientes mejoras que queremos desarrollar son:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Catálogo y tienda online:</strong>
+            mostrar productos y gestionar pedidos por Internet.
+          </li>
+          <li>
+            <strong>Inventario digital:</strong>
+            controlar las existencias y los pedidos a proveedores.
+          </li>
+          <li>
+            <strong>Citas online:</strong>
+            reservar una visita al servicio técnico.
+          </li>
+          <li>
+            <strong>Seguimiento de reparaciones:</strong>
+            consultar el estado de cada equipo.
+          </li>
+          <li>
+            <strong>Gestión de clientes y facturas:</strong>
+            organizar presupuestos, ventas y documentación.
+          </li>
+          <li>
+            <strong>Ciberseguridad:</strong>
+            proteger los datos y establecer copias de seguridad.
+          </li>
+          <li>
+            <strong>Análisis de datos:</strong>
+            estudiar ventas, productos demandados y tiempos de reparación.
+          </li>
+          <li>
+            <strong>Sostenibilidad:</strong>
+            reducir el papel y registrar la reutilización y el reciclaje
+            de componentes.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacta con nosotros</h2>
+
+      <div class="contacto">
+        <div>
+          <h3>Cuéntanos qué necesitas</h3>
+          <p>
+            ¿Buscas un ordenador o necesitas reparar el tuyo?
+            Rellena el formulario para probar cómo sería una solicitud.
+          </p>
+
+          <p><strong>Ubicación:</strong> Granada, España.</p>
+          <p>
+            <strong>Horario:</strong>
+            lunes a viernes, de 9:00 a 14:00 y de 17:00 a 20:00.
+          </p>
+
+          <p class="aviso">
+            Empresa ficticia creada para la asignatura de Digitalización.
+            Los servicios y horarios son ilustrativos.
+          </p>
+        </div>
+
+        <form id="formulario">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Tu nombre"
+            autocomplete="given-name"
+            required
+          >
+
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="nombre@ejemplo.com"
+            autocomplete="email"
+            required
+          >
+
+          <label for="servicio">¿Qué necesitas?</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="venta">Comprar un equipo</option>
+            <option value="reparacion">Reparar un equipo</option>
+            <option value="soporte">Soporte para mi empresa</option>
+            <option value="consulta">Otra consulta</option>
+          </select>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            placeholder="Explica brevemente tu consulta"
+            required
+          ></textarea>
+
+          <p class="aviso">
+            Formulario de demostración. No envía ni almacena datos.
+          </p>
+
+          <button type="submit" class="boton">
+            Probar solicitud
+          </button>
+
+          <p id="resultado" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>TecnoSur · Informática y reparación</strong></p>
+    <p>Proyecto educativo · Digitalización · ASIR</p>
+  </footer>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const resultado = document.getElementById("resultado");
+
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+
+      resultado.textContent =
+        "Prueba completada. En una futura versión, esta solicitud " +
+        "se enviará a la empresa. Ahora no se ha enviado ni guardado.";
+
+      formulario.reset();
+    });
+  </script>
+</body>
+</html>
