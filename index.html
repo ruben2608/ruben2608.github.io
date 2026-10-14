@@ -1,721 +1,776 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-        content="TecnoSur: proyecto educativo de una tienda y taller
-        de informática de Granada en proceso de digitalización.">
-
-  <title>TecnoSur | Tecnología cerca de ti</title>
-
-  <style>
-    /* COLORES Y ESTILOS GENERALES */
-    :root {
-      --fondo: #f5f7fa;
-      --oscuro: #152c38;
-      --verde: #b8ef65;
-      --texto: #263c48;
-      --gris: #536773;
-      --borde: #dce3e8;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 24px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--fondo);
-      color: var(--texto);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 3px solid #287259;
-      outline-offset: 5px;
-    }
-
-    .contenedor {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
-
-    /* CABECERA */
-    header {
-      background: white;
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .cabecera {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      text-decoration: none;
-    }
-
-    .logo span {
-      color: #397657;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    nav a {
-      font-size: 14px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: #397657;
-      text-decoration: underline;
-    }
-
-    /* PRESENTACIÓN */
-    .portada {
-      background: var(--oscuro);
-      color: white;
-      padding: 75px 0;
-    }
-
-    .portada-interior {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .etiqueta {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--verde);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0 0 20px;
-      font-size: clamp(38px, 5vw, 62px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-    }
-
-    h1 span {
-      color: var(--verde);
-    }
-
-    .portada p {
-      max-width: 510px;
-      color: #d1dce2;
-      font-size: 17px;
-    }
-
-    .boton {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 13px 22px;
-      border-radius: 8px;
-      background: var(--verde);
-      color: var(--oscuro);
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    .boton:hover {
-      transform: translateY(-3px);
-    }
-
-    /* ILUSTRACIÓN HECHA CON CSS */
-    .ordenador {
-      width: 100%;
-      max-width: 370px;
-      margin: auto;
-    }
-
-    .pantalla {
-      padding: 26px;
-      border: 10px solid #526a79;
-      border-bottom-width: 18px;
-      border-radius: 18px;
-      background: #203d4b;
-      box-shadow: 18px 18px 0 #1b3542;
-    }
-
-    .puntos {
-      display: flex;
-      gap: 7px;
-      margin-bottom: 25px;
-    }
-
-    .puntos i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--verde);
-    }
-
-    .pantalla strong {
-      display: block;
-      color: var(--verde);
-      font-size: 25px;
-    }
-
-    .pantalla small {
-      color: #d1dce2;
-    }
-
-    .linea {
-      height: 8px;
-      margin-top: 15px;
-      border-radius: 5px;
-      background: #66818e;
-    }
-
-    .linea.corta {
-      width: 65%;
-      background: var(--verde);
-    }
-
-    .pie-monitor {
-      width: 65px;
-      height: 35px;
-      margin: auto;
-      background: #526a79;
-    }
-
-    .base-monitor {
-      width: 170px;
-      height: 12px;
-      margin: auto;
-      border-radius: 10px;
-      background: #8298a4;
-    }
-
-    /* SECCIONES */
-    section {
-      padding: 65px 0;
-    }
-
-    .numero {
-      color: #397657;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 8px 0 15px;
-      font-size: clamp(27px, 4vw, 36px);
-      line-height: 1.2;
-      letter-spacing: -1px;
-    }
-
-    h3 {
-      margin: 12px 0 8px;
-      font-size: 20px;
-    }
-
-    .introduccion {
-      max-width: 700px;
-      margin-bottom: 30px;
-      color: var(--gris);
-    }
-
-    .dos-columnas {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: start;
-    }
-
-    .ficha {
-      padding: 25px;
-      border-left: 4px solid #77af46;
-      border-radius: 0 12px 12px 0;
-      background: #e9efdf;
-    }
-
-    .ficha p {
-      margin: 8px 0;
-    }
-
-    .blanco {
-      background: white;
-    }
-
-    .tarjetas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .tarjeta {
-      padding: 27px;
-      border: 1px solid var(--borde);
-      border-radius: 14px;
-      background: white;
-    }
-
-    .tarjeta p {
-      margin-bottom: 0;
-      color: var(--gris);
-    }
-
-    .distintivo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: #eaf4db;
-      color: #34572d;
-      font-weight: bold;
-    }
-
-    /* PLAN DE DIGITALIZACIÓN */
-    .paso {
-      display: grid;
-      grid-template-columns: 45px 1fr;
-      gap: 16px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .paso h3 {
-      margin-top: 0;
-    }
-
-    .paso p {
-      margin: 0;
-      color: var(--gris);
-    }
-
-    .estado {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      background: #e6eddf;
-      color: #36532c;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    /* PROYECTOS AMPLIABLES */
-    details {
-      margin-bottom: 12px;
-      padding: 18px 22px;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      background: white;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    details p {
-      margin-bottom: 0;
-      color: var(--gris);
-    }
-
-    .cierre {
-      padding: 35px;
-      border-radius: 16px;
-      background: var(--oscuro);
-      color: white;
-    }
-
-    .cierre p {
-      color: #d1dce2;
-    }
-
-    footer {
-      padding: 25px 0;
-      border-top: 1px solid var(--borde);
-      color: var(--gris);
-      font-size: 13px;
-    }
-
-    .pie {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* ADAPTACIÓN A MÓVILES */
-    @media (max-width: 760px) {
-      .cabecera {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 12px 18px;
-      }
-
-      .portada {
-        padding: 45px 0;
-      }
-
-      .portada-interior,
-      .dos-columnas,
-      .tarjetas {
-        grid-template-columns: 1fr;
-      }
-
-      .portada-interior {
-        gap: 40px;
-      }
-
-      section {
-        padding: 45px 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .boton {
-        transition: none;
-      }
-
-      .boton:hover {
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedalea · Taller, tienda y alquiler de bicicletas</title>
+<meta name="description" content="Pedalea: tienda, taller, alquiler y rutas en bici. Una pyme en plena transformación digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6ee;--bg2:#f1ebdd;--card:#ffffff;--text:#1d2420;--muted:#68736d;--line:#e3dccb;
+  --verde:#1f7a5c;--verde2:#2fa57c;--head:#14533e;--naranja:#f28c28;--naranja2:#ffb454;--rojo:#d9534f;
+  --sombra:0 10px 30px rgba(20,60,45,.10);--radio:18px;
+  --f-tit:"Poppins",system-ui,sans-serif;--f-txt:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#0e1814;--bg2:#12211b;--card:#172923;--text:#eaf1ed;--muted:#9db0a7;--line:#25403a;
+  --verde:#3bc596;--verde2:#2fa57c;--head:#8fe3c3;--sombra:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--f-txt);background:var(--bg);color:var(--text);line-height:1.65;transition:background .3s,color .3s;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,92%);margin:auto}
+section{padding:90px 0;position:relative}
+.alt{background:var(--bg2)}
+h1,h2,h3,h4{font-family:var(--f-tit);line-height:1.2}
+.kicker{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--naranja);margin-bottom:10px}
+h2.t{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--head);margin-bottom:12px}
+.sub{color:var(--muted);max-width:680px;margin-bottom:44px;font-size:1.05rem}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+.grid{display:grid;gap:24px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border-radius:var(--radio);padding:28px;box-shadow:var(--sombra);border:1px solid var(--line);transition:transform .3s,box-shadow .3s}
+.card.hov:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,60,45,.18)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:700;border:2px solid transparent;font-size:.98rem;transition:.25s}
+.btn-p{background:linear-gradient(135deg,var(--naranja),var(--naranja2));color:#2a1700;box-shadow:0 8px 20px rgba(242,140,40,.35)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(242,140,40,.45)}
+.btn-o{border-color:#fff;color:#fff;background:transparent}.btn-o:hover{background:#fff;color:var(--head)}
+.btn-v{background:var(--verde);color:#fff}.btn-v:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-s{padding:9px 18px;font-size:.88rem}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+#progreso{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--naranja),var(--verde2));z-index:100}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--f-tit);font-weight:800;font-size:1.5rem;color:var(--head);display:flex;align-items:center;gap:8px}
+.logo i{font-style:normal;color:var(--naranja)}
+.menu{display:flex;gap:4px;list-style:none;align-items:center}
+.menu a{padding:8px 12px;border-radius:999px;font-weight:600;font-size:.9rem}
+.menu a:hover,.menu a.act{background:color-mix(in srgb,var(--verde) 14%,transparent);color:var(--head)}
+.acciones{display:flex;gap:10px;align-items:center}
+.ibtn{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:1.1rem;display:grid;place-items:center;color:var(--text)}
+.ibtn:hover{border-color:var(--naranja)}
+.badge{position:absolute;top:-4px;right:-4px;background:var(--naranja);color:#2a1700;font-size:.7rem;font-weight:800;min-width:20px;height:20px;border-radius:999px;display:grid;place-items:center}
+#burger{display:none}
+
+/* HERO */
+.hero{background:radial-gradient(1000px 500px at 85% 10%,#2fa57c55,transparent),linear-gradient(135deg,#0d3f2f,#1f7a5c 70%,#2fa57c);color:#fff;padding:90px 0 110px;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:flota 9s ease-in-out infinite}
+.hero::before{width:320px;height:320px;background:var(--naranja);left:-80px;top:40px}
+.hero::after{width:260px;height:260px;background:#7ce0bd;right:20%;bottom:-60px;animation-delay:-4s}
+@keyframes flota{50%{transform:translate(30px,-30px)}}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.pill{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 16px;border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:20px}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.8rem);font-weight:800;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--naranja2);display:inline-block;transition:.35s}
+.hero p.lead{font-size:1.15rem;opacity:.92;max-width:560px;margin-bottom:30px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.visual{position:relative}
+.visual .marco{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:30px 20px 10px;backdrop-filter:blur(6px)}
+.chip{position:absolute;background:#fff;color:#1d2420;padding:9px 16px;border-radius:14px;font-weight:600;font-size:.85rem;box-shadow:0 10px 24px rgba(0,0,0,.25);animation:flota 6s ease-in-out infinite}
+.chip.c1{top:-14px;left:-10px}.chip.c2{top:44%;right:-16px;animation-delay:-2s}.chip.c3{bottom:-8px;left:12%;animation-delay:-4s}
+.rueda{transform-box:fill-box;transform-origin:center;animation:gira 3.2s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.onda{position:absolute;bottom:-1px;left:0;width:100%;line-height:0}
+
+/* STATS */
+.stats{margin-top:-60px;position:relative;z-index:5;padding:0}
+.stats .grid{background:var(--card);border-radius:24px;box-shadow:var(--sombra);padding:34px;border:1px solid var(--line)}
+.stat{text-align:center}
+.stat b{display:block;font-family:var(--f-tit);font-size:2.4rem;color:var(--naranja)}
+.stat span{color:var(--muted);font-size:.92rem}
+
+/* EMPRESA */
+.ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-size:1.8rem;background:linear-gradient(135deg,color-mix(in srgb,var(--verde) 18%,transparent),color-mix(in srgb,var(--naranja) 22%,transparent));margin-bottom:16px}
+.card h3{color:var(--head);margin-bottom:8px;font-size:1.2rem}
+.card p,.card li{color:var(--muted);font-size:.96rem}
+.dolor{margin-top:14px;padding:10px 14px;border-radius:12px;background:color-mix(in srgb,var(--rojo) 12%,transparent);font-size:.85rem;color:var(--text)}
+.dolor b{color:var(--rojo)}
+.timeline{position:relative;margin-top:60px;padding-left:30px;border-left:3px solid var(--line)}
+.hito{position:relative;margin-bottom:28px}
+.hito::before{content:"";position:absolute;left:-39px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--naranja);border:3px solid var(--bg)}
+.hito b{font-family:var(--f-tit);color:var(--head)}
+.hito p{color:var(--muted)}
+.equipo .av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:2rem;color:#fff;margin-bottom:14px;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.equipo small{color:var(--naranja);font-weight:700}
+
+/* CATALOGO */
+.barra-tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;align-items:center}
+.barra-tools input,.barra-tools select,input,select,textarea{padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:var(--card);color:var(--text);width:100%}
+.barra-tools input{flex:1;min-width:200px;width:auto}.barra-tools select{width:auto}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--verde2);box-shadow:0 0 0 4px color-mix(in srgb,var(--verde2) 22%,transparent)}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.fil{padding:8px 18px;border-radius:999px;border:2px solid var(--verde);background:transparent;color:var(--head);font-weight:700;font-size:.9rem}
+.fil.act,.fil:hover{background:var(--verde);color:#fff}
+.prod{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.prod .img{height:150px;display:grid;place-items:center;font-size:4.2rem;position:relative}
+.prod .tag{position:absolute;top:12px;left:12px;background:var(--naranja);color:#2a1700;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:999px}
+.prod .cuerpo{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prod h3{font-size:1.08rem}.prod .cat{font-size:.8rem;color:var(--muted)}
+.estrellas{color:var(--naranja);font-size:.9rem}
+.prod .pie{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:10px}
+.precio{font-family:var(--f-tit);font-weight:800;font-size:1.3rem;color:var(--head)}
+.stock{font-size:.78rem;color:var(--muted)}
+.vacio{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
+
+/* CARRITO */
+#velo{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+#velo.on{opacity:1;pointer-events:auto}
+#carrito{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--card);z-index:95;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.25)}
+#carrito.on{transform:none}
+#carrito header{position:static;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--card);border-bottom:1px solid var(--line)}
+#items{flex:1;overflow:auto;padding:16px 24px}
+.linea{display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.linea .mini{font-size:2rem}
+.cant{display:flex;align-items:center;gap:8px;margin-top:4px}
+.cant button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--bg2);color:var(--text);font-weight:700}
+.pie-car{padding:20px 24px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;font-family:var(--f-tit);font-weight:700;font-size:1.2rem;margin-bottom:6px}
+.pie-car small{color:var(--muted);display:block;margin-bottom:14px}
+
+/* TALLER */
+.taller{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:start}
+.pasos{display:flex;justify-content:space-between;margin:30px 0 10px;position:relative}
+.pasos::before{content:"";position:absolute;top:22px;left:8%;right:8%;height:4px;background:var(--line)}
+.paso{position:relative;text-align:center;flex:1;font-size:.78rem;color:var(--muted)}
+.paso .c{width:46px;height:46px;border-radius:50%;background:var(--bg2);border:3px solid var(--line);display:grid;place-items:center;margin:0 auto 8px;font-size:1.2rem;position:relative;z-index:1;transition:.4s}
+.paso.ok .c{background:var(--verde);border-color:var(--verde);color:#fff}
+.paso.now .c{background:var(--naranja);border-color:var(--naranja);animation:pulso 1.6s infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(242,140,40,.6)}100%{box-shadow:0 0 0 16px rgba(242,140,40,0)}}
+.resultado{display:none;margin-top:18px}
+.ayuda code{background:var(--bg2);padding:2px 8px;border-radius:6px;cursor:pointer;font-weight:600;color:var(--head)}
+.lista-serv{list-style:none;display:grid;gap:10px;margin-top:16px}
+.lista-serv li{display:flex;justify-content:space-between;padding:10px 14px;background:var(--bg2);border-radius:12px}
+.lista-serv b{color:var(--head)}
+
+/* ALQUILER */
+.alq{display:grid;grid-template-columns:1.2fr 1fr;gap:30px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:12px 0 22px}
+.opt{border:2px solid var(--line);border-radius:14px;padding:14px 8px;text-align:center;background:var(--bg);cursor:pointer;transition:.2s;color:var(--text)}
+.opt .e{font-size:2rem;display:block}.opt small{color:var(--muted)}
+.opt.act{border-color:var(--verde2);background:color-mix(in srgb,var(--verde2) 14%,transparent)}
+input[type=range]{padding:0;height:8px;accent-color:var(--naranja);border:none;box-shadow:none}
+.extras{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.extras label{display:flex;gap:8px;align-items:center;font-size:.92rem;cursor:pointer}
+.extras input{width:auto}
+label.l{font-weight:600;font-size:.92rem;display:block;margin-top:14px}
+.resumen{background:linear-gradient(160deg,#0d3f2f,#1f7a5c);color:#fff;border-radius:var(--radio);padding:30px}
+.resumen h3{color:#fff;margin-bottom:14px}
+.resumen .fila{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.25);font-size:.95rem}
+.resumen .total{font-family:var(--f-tit);font-size:2.6rem;font-weight:800;color:var(--naranja2);margin:14px 0 4px}
+
+/* RUTAS */
+.ruta{padding:0;overflow:hidden}
+.ruta .mapa{height:140px;position:relative}
+.ruta .mapa svg{width:100%;height:100%;display:block}
+.ruta .cuerpo{padding:22px}
+.meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin:10px 0 14px}
+.dif{display:inline-flex;gap:4px;vertical-align:middle}.dif i{width:10px;height:10px;border-radius:50%;background:var(--line)}.dif i.on{background:var(--naranja)}
+.plazas{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:6px 0 14px}
+.plazas span{display:block;height:100%;background:linear-gradient(90deg,var(--verde2),var(--naranja));transition:width .5s}
+
+/* DIGITAL */
+.radar-box{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.leyenda{display:flex;gap:18px;justify-content:center;font-size:.85rem;margin-top:8px;color:var(--muted)}
+.leyenda i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.bar{margin-bottom:16px}.bar .l{display:flex;justify-content:space-between;font-weight:600;font-size:.92rem;margin-bottom:5px}
+.bar .f{height:12px;background:var(--line);border-radius:99px;position:relative;overflow:hidden}
+.bar .a,.bar .o{position:absolute;left:0;top:0;height:100%;width:0;border-radius:99px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.bar .o{background:color-mix(in srgb,var(--verde2) 40%,transparent)}
+.bar .a{background:linear-gradient(90deg,var(--naranja),var(--naranja2))}
+.sw{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px;margin-bottom:26px}
+.sw button{border:none;background:transparent;padding:9px 22px;border-radius:999px;font-weight:700;color:var(--muted)}
+.sw button.act{background:var(--verde);color:#fff}
+.flujo{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.nodo{flex:1;min-width:150px;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px;text-align:center;transition:.4s}
+.nodo .e{font-size:1.8rem}.nodo b{display:block;font-size:.88rem;color:var(--head);margin:4px 0}.nodo p{font-size:.8rem;color:var(--muted)}
+.flujo.hoy .nodo{border-color:color-mix(in srgb,var(--rojo) 45%,var(--line))}
+.flujo.dig .nodo{border-color:var(--verde2);background:color-mix(in srgb,var(--verde2) 9%,var(--card))}
+.flecha{display:grid;place-items:center;font-size:1.4rem;color:var(--naranja)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.kpi small{color:var(--muted)}.kpi b{display:block;font-family:var(--f-tit);font-size:1.9rem;color:var(--head)}
+.kpi .d{font-size:.82rem;font-weight:700;color:var(--verde2)}
+.grafico{background:var(--card);border:1px solid var(--line);border-radius:var(--radio);padding:24px}
+.grafico text{fill:var(--muted);font-size:11px}
+.dafo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dafo .q{border-radius:var(--radio);padding:24px;border:1px solid var(--line);background:var(--card);border-top:6px solid}
+.dafo .q h3{margin-bottom:10px}.dafo ul{margin-left:18px;color:var(--muted);font-size:.94rem}
+.q.d{border-top-color:var(--rojo)}.q.a{border-top-color:var(--naranja)}.q.f{border-top-color:var(--verde2)}.q.o{border-top-color:#4a90d9}
+
+/* HOJA DE RUTA */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.tab{padding:11px 22px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-weight:700;color:var(--text);transition:.2s}
+.tab.act{background:var(--verde);border-color:var(--verde);color:#fff}
+.panel{display:none}.panel.act{display:block;animation:ap .5s}
+@keyframes ap{from{opacity:0;transform:translateY(12px)}}
+.tarea{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.tarea input{width:20px;height:20px;margin-top:3px;accent-color:var(--verde2);flex:none}
+.tarea.hecha span{text-decoration:line-through;opacity:.55}
+.tags span{display:inline-block;background:color-mix(in srgb,var(--verde) 14%,transparent);color:var(--head);padding:3px 12px;border-radius:999px;font-size:.78rem;font-weight:700;margin:4px 6px 0 0}
+.total-prog{margin-bottom:26px}
+.total-prog .f{height:16px;background:var(--line);border-radius:99px;overflow:hidden}
+.total-prog .f span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--verde2),var(--naranja));transition:width .6s}
+.tec{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.tec span{background:var(--bg2);border:1px solid var(--line);padding:6px 14px;border-radius:12px;font-size:.88rem;font-weight:600}
+
+/* OTROS */
+.testi p{font-style:italic;margin-bottom:14px}.testi b{color:var(--head)}.testi .estrellas{margin-bottom:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+summary{font-weight:700;cursor:pointer;color:var(--head);list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";font-size:1.4rem;color:var(--naranja);transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px}
+.contacto{display:grid;grid-template-columns:1fr 1.3fr;gap:30px}
+.contacto form{display:grid;gap:14px}
+.contacto label{font-weight:600;font-size:.9rem;display:block;margin-bottom:5px}
+.err{color:var(--rojo);font-size:.8rem;display:none;margin-top:4px}
+.dato{display:flex;gap:14px;align-items:center;margin-bottom:18px}.dato .ico{margin:0;flex:none}
+footer{background:#0b1612;color:#b4c4bc;padding:60px 0 30px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:34px}
+footer h4{color:#fff;margin-bottom:12px}footer li{list-style:none;margin-bottom:6px}footer a:hover{color:var(--naranja2)}
+footer .fin{border-top:1px solid #1d332b;padding-top:20px;text-align:center;font-size:.85rem}
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120px);background:#14533e;color:#fff;padding:14px 26px;border-radius:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .4s;z-index:120;max-width:90%;text-align:center}
+#toast.on{transform:translate(-50%,0)}
+#subir{position:fixed;bottom:26px;right:26px;width:48px;height:48px;border-radius:50%;border:none;background:var(--naranja);color:#2a1700;font-size:1.3rem;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+#subir.on{opacity:1;pointer-events:auto}
+
+@media(max-width:980px){
+  .menu{position:fixed;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.35s;z-index:-1}
+  .menu.on{transform:none}
+  #burger{display:grid}
+  .hero .wrap,.taller,.alq,.radar-box,.contacto,.dafo,footer .cols{grid-template-columns:1fr}
+  .visual{max-width:520px;margin:auto}
+  .flecha{display:none}
+  section{padding:70px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
-
 <body>
+<div id="progreso"></div>
 
-  <!-- CABECERA Y NAVEGACIÓN -->
-  <header id="inicio">
-    <div class="contenedor cabecera">
-      <a class="logo" href="#inicio" aria-label="TecnoSur, inicio">
-        Tecno<span>Sur.</span>
-      </a>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#inicio" class="logo">🚲 Pedalea<i>.</i></a>
+      <ul class="menu" id="menu">
+        <li><a href="#empresa">Empresa</a></li>
+        <li><a href="#catalogo">Tienda</a></li>
+        <li><a href="#taller">Taller</a></li>
+        <li><a href="#alquiler">Alquiler</a></li>
+        <li><a href="#rutas">Rutas</a></li>
+        <li><a href="#digital">Digitalización</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="acciones">
+        <button class="ibtn" id="tema" aria-label="Cambiar tema">🌙</button>
+        <button class="ibtn" id="abrirCar" aria-label="Abrir carrito">🛒<span class="badge" id="nCar">0</span></button>
+        <button class="ibtn" id="burger" aria-label="Menú">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-      <nav aria-label="Navegación principal">
-        <a href="#empresa">Empresa</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#digitalizacion">Digitalización</a>
-        <a href="#proyectos">Proyectos</a>
-      </nav>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="pill">🌱 Empresa en transformación digital · Curso 2026/27</span>
+      <h1>Pedalea: la bici que te lleva a <em id="palabra">vender</em> en digital</h1>
+      <p class="lead">Quince años vendiendo, reparando y alquilando bicicletas con papel, Excel y WhatsApp. Esta es la web de partida sobre la que construiremos, proyecto a proyecto, una empresa totalmente digital.</p>
+      <div class="cta">
+        <a href="#digital" class="btn btn-p">Ver diagnóstico digital →</a>
+        <a href="#proyectos" class="btn btn-o">Hoja de ruta del curso</a>
+      </div>
     </div>
-  </header>
-
-  <main>
-
-    <!-- PRESENTACIÓN -->
-    <section class="portada" aria-labelledby="titulo">
-      <div class="contenedor portada-interior">
-        <div>
-          <span class="etiqueta">Informática · Granada</span>
-
-          <h1 id="titulo">
-            Tu tecnología.<br>
-            Nuestro próximo<br>
-            <span>paso digital.</span>
-          </h1>
-
-          <p>
-            Vendemos, reparamos y damos una segunda vida a tus equipos.
-            Ahora queremos transformar nuestra forma de trabajar para
-            ofrecer un servicio más rápido, conectado y sostenible.
-          </p>
-
-          <a class="boton" href="#digitalizacion">
-            Descubre nuestro plan &rarr;
-          </a>
-        </div>
-
-        <div class="ordenador" aria-hidden="true">
-          <div class="pantalla">
-            <div class="puntos">
-              <i></i><i></i><i></i>
-            </div>
-            <strong>TecnoSur.</strong>
-            <small>Conectando con el futuro</small>
-            <div class="linea"></div>
-            <div class="linea corta"></div>
-            <div class="linea"></div>
-          </div>
-          <div class="pie-monitor"></div>
-          <div class="base-monitor"></div>
-        </div>
+    <div class="visual">
+      <span class="chip c1">📦 Inventario en Excel</span>
+      <span class="chip c2">💬 Citas por WhatsApp</span>
+      <span class="chip c3">🧾 Facturas en papel</span>
+      <div class="marco">
+        <svg viewBox="0 0 440 260" role="img" aria-label="Bicicleta animada">
+          <ellipse cx="220" cy="248" rx="190" ry="8" fill="rgba(0,0,0,.25)"/>
+          <g class="rueda" style="animation-duration:3s"><circle cx="105" cy="180" r="62" fill="none" stroke="#fff" stroke-width="7"/><g stroke="#ffffffaa" stroke-width="2"><line x1="105" y1="120" x2="105" y2="240"/><line x1="45" y1="180" x2="165" y2="180"/><line x1="62" y1="137" x2="148" y2="223"/><line x1="148" y1="137" x2="62" y2="223"/></g></g>
+          <g class="rueda" style="animation-duration:3s"><circle cx="335" cy="180" r="62" fill="none" stroke="#fff" stroke-width="7"/><g stroke="#ffffffaa" stroke-width="2"><line x1="335" y1="120" x2="335" y2="240"/><line x1="275" y1="180" x2="395" y2="180"/><line x1="292" y1="137" x2="378" y2="223"/><line x1="378" y1="137" x2="292" y2="223"/></g></g>
+          <g stroke="#f28c28" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M105 180 L190 180 L160 100 Z"/>
+            <path d="M190 180 L300 100 L160 100"/>
+            <path d="M300 100 L335 180"/>
+          </g>
+          <g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M150 88 L178 88"/><path d="M292 84 L318 78 M300 100 L300 84"/></g>
+          <circle cx="190" cy="180" r="14" fill="none" stroke="#fff" stroke-width="4"/>
+          <g class="rueda" style="animation-duration:1.4s"><path d="M190 180 L172 198 M190 180 L208 162" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g>
+          <circle cx="105" cy="180" r="7" fill="#fff"/><circle cx="335" cy="180" r="7" fill="#fff"/>
+        </svg>
       </div>
-    </section>
-
-    <!-- INFORMACIÓN DE LA EMPRESA -->
-    <section id="empresa">
-      <div class="contenedor">
-        <span class="numero">01 / La empresa</span>
-        <h2>Un negocio cercano con ganas de crecer.</h2>
-
-        <div class="dos-columnas">
-          <div>
-            <p>
-              TecnoSur es una pequeña empresa ficticia situada en
-              Granada. Se dedica a la venta de material informático,
-              la reparación de ordenadores y el mantenimiento de
-              equipos para particulares y pequeños negocios.
-            </p>
-
-            <p>
-              Su equipo está formado por cinco personas: una responsable,
-              dos técnicos de reparación, una persona de ventas y una
-              encargada de administración.
-            </p>
-
-            <p>
-              La empresa quiere digitalizarse para organizar mejor su
-              trabajo, reducir errores y llegar a nuevos clientes.
-            </p>
-          </div>
-
-          <aside class="ficha" aria-label="Situación actual">
-            <h3>¿Cómo trabajamos actualmente?</h3>
-            <p><strong>Ventas:</strong> principalmente en tienda.</p>
-            <p><strong>Reparaciones:</strong> registradas en papel.</p>
-            <p><strong>Inventario:</strong> hojas de cálculo manuales.</p>
-            <p><strong>Citas:</strong> por teléfono o en el local.</p>
-            <p><strong>Documentación:</strong> repartida entre equipos.</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section id="servicios" class="blanco">
-      <div class="contenedor">
-        <span class="numero">02 / Qué hacemos</span>
-        <h2>Soluciones para el día a día.</h2>
-
-        <p class="introduccion">
-          Tres áreas de trabajo que servirán como base para
-          desarrollar nuevos servicios digitales.
-        </p>
-
-        <div class="tarjetas">
-          <article class="tarjeta">
-            <span class="distintivo" aria-hidden="true">01</span>
-            <h3>Venta de equipos</h3>
-            <p>
-              Ordenadores, periféricos y componentes. Asesoramos
-              a cada cliente para encontrar el equipo que necesita.
-            </p>
-          </article>
-
-          <article class="tarjeta">
-            <span class="distintivo" aria-hidden="true">02</span>
-            <h3>Reparación y mejora</h3>
-            <p>
-              Diagnóstico de averías, limpieza, sustitución de
-              componentes y ampliación de memoria y almacenamiento.
-            </p>
-          </article>
-
-          <article class="tarjeta">
-            <span class="distintivo" aria-hidden="true">03</span>
-            <h3>Soporte a negocios</h3>
-            <p>
-              Mantenimiento de equipos, instalación de programas
-              y configuración de pequeñas redes de oficina.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLAN DE DIGITALIZACIÓN -->
-    <section id="digitalizacion">
-      <div class="contenedor">
-        <span class="numero">03 / Nuestro cambio</span>
-        <h2>Del papel a una empresa conectada.</h2>
-
-        <p class="introduccion">
-          Este es nuestro plan de transformación. La web es el primer
-          paso; las siguientes mejoras se desarrollarán progresivamente.
-        </p>
-
-        <div class="paso">
-          <span class="distintivo" aria-hidden="true">1</span>
-          <div>
-            <h3>Crear presencia en Internet</h3>
-            <p>
-              Presentar la empresa y sus servicios mediante esta web.
-              Más adelante, incorporar un catálogo de productos.
-            </p>
-            <span class="estado">Prototipo actual</span>
-          </div>
-        </div>
-
-        <div class="paso">
-          <span class="distintivo" aria-hidden="true">2</span>
-          <div>
-            <h3>Centralizar la información</h3>
-            <p>
-              Diseñar una base de datos para clientes, productos,
-              proveedores y reparaciones, evitando registros duplicados.
-            </p>
-            <span class="estado">Próxima fase</span>
-          </div>
-        </div>
-
-        <div class="paso">
-          <span class="distintivo" aria-hidden="true">3</span>
-          <div>
-            <h3>Digitalizar la atención al cliente</h3>
-            <p>
-              Permitir solicitar citas y consultar el estado de una
-              reparación sin tener que llamar a la tienda.
-            </p>
-            <span class="estado">Planificado</span>
-          </div>
-        </div>
-
-        <div class="paso">
-          <span class="distintivo" aria-hidden="true">4</span>
-          <div>
-            <h3>Proteger los datos y trabajar mejor</h3>
-            <p>
-              Configurar permisos de acceso, copias de seguridad
-              y una red segura. Reducir el uso de papel y registrar
-              la reutilización y el reciclaje de componentes.
-            </p>
-            <span class="estado">Planificado</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FUTUROS PROYECTOS -->
-    <section id="proyectos" class="blanco">
-      <div class="contenedor">
-        <span class="numero">04 / Durante el curso</span>
-        <h2>Una empresa. Muchos proyectos posibles.</h2>
-
-        <p class="introduccion">
-          Pulsa en cada apartado para descubrir cómo podemos
-          seguir desarrollando TecnoSur.
-        </p>
-
-        <details>
-          <summary>Base de datos e inventario</summary>
-          <p>
-            Diseñar un modelo entidad-relación con clientes,
-            productos, proveedores, ventas y reparaciones.
-            Crear después una base de datos para consultar
-            existencias y detectar productos con poco stock.
-          </p>
-        </details>
-
-        <details>
-          <summary>Tienda online y catálogo</summary>
-          <p>
-            Incorporar fichas de productos, categorías, buscador
-            y carrito. En una fase posterior, conectar pedidos
-            y existencias con la base de datos.
-          </p>
-        </details>
-
-        <details>
-          <summary>Citas y seguimiento de reparaciones</summary>
-          <p>
-            Crear un sistema para solicitar cita y registrar
-            equipos. Gestionar estados como recibido,
-            en diagnóstico, en reparación y listo para recoger.
-          </p>
-        </details>
-
-        <details>
-          <summary>Red local, usuarios y seguridad</summary>
-          <p>
-            Diseñar la red de la tienda y del taller, separar
-            el acceso de invitados y definir permisos según
-            el puesto de cada trabajador.
-          </p>
-        </details>
-
-        <details>
-          <summary>Copias de seguridad y documentación compartida</summary>
-          <p>
-            Planificar copias automáticas, probar la recuperación
-            de archivos y organizar documentos compartidos
-            para que el equipo trabaje de forma coordinada.
-          </p>
-        </details>
-
-        <details>
-          <summary>Sostenibilidad y análisis de resultados</summary>
-          <p>
-            Medir el consumo de papel, los equipos reparados,
-            los componentes reutilizados y los tiempos de reparación.
-            Mostrar estos indicadores en un panel de seguimiento.
-          </p>
-        </details>
-      </div>
-    </section>
-
-    <!-- CIERRE -->
-    <section>
-      <div class="contenedor">
-        <div class="cierre">
-          <span class="etiqueta">Nuestro objetivo</span>
-          <h2>Más organización. Mejor servicio.</h2>
-          <p>
-            Queremos dedicar menos tiempo a tareas manuales
-            y más tiempo a resolver las necesidades de nuestros
-            clientes. Esta web es el comienzo de ese cambio.
-          </p>
-          <a class="boton" href="#proyectos">
-            Explorar los próximos proyectos &rarr;
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="contenedor pie">
-      <span><strong>TecnoSur.</strong> Proyecto de Digitalización.</span>
-      <span>Empresa ficticia · Curso 2026–2027</span>
     </div>
-  </footer>
+  </div>
+  <div class="onda"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" height="60" width="100%"><path d="M0 40 C240 90 480 0 720 30 C960 60 1200 90 1440 30 L1440 80 L0 80Z" fill="var(--bg)"/></svg></div>
+</section>
 
+<!-- STATS -->
+<section class="stats"><div class="wrap"><div class="grid g4 reveal">
+  <div class="stat"><b data-n="15">0</b><span>años de historia</span></div>
+  <div class="stat"><b data-n="9">0</b><span>personas en plantilla</span></div>
+  <div class="stat"><b data-n="1200">0</b><span>clientes en fichas de papel</span></div>
+  <div class="stat"><b data-n="350">0</b><span>referencias en almacén</span></div>
+</div></div></section>
+
+<!-- EMPRESA -->
+<section id="empresa">
+  <div class="wrap">
+    <div class="center reveal"><span class="kicker">Quiénes somos</span><h2 class="t">Cuatro negocios en uno, todos por digitalizar</h2>
+    <p class="sub">Pedalea es una pyme con alma de barrio. Cada línea de negocio tiene procesos manuales que podemos transformar a lo largo del curso.</p></div>
+    <div class="grid g4">
+      <div class="card hov reveal"><div class="ico">🚲</div><h3>Tienda</h3><p>Bicicletas, ropa y accesorios para ciudad, montaña y eléctricas.</p><div class="dolor"><b>Hoy:</b> inventario en Excel y pedidos a proveedores por teléfono.</div></div>
+      <div class="card hov reveal"><div class="ico">🔧</div><h3>Taller</h3><p>Puesta a punto, reparaciones y mantenimiento de todo tipo de bicis.</p><div class="dolor"><b>Hoy:</b> citas por WhatsApp y partes de trabajo en papel.</div></div>
+      <div class="card hov reveal"><div class="ico">📅</div><h3>Alquiler</h3><p>Flota de 40 bicicletas para turistas y vecinos, por horas o por días.</p><div class="dolor"><b>Hoy:</b> reservas apuntadas en una agenda física.</div></div>
+      <div class="card hov reveal"><div class="ico">🏞️</div><h3>Rutas guiadas</h3><p>Excursiones en grupo por la vega, la sierra y la costa.</p><div class="dolor"><b>Hoy:</b> inscripciones por mensaje y cobro en efectivo.</div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:60px;align-items:start">
+      <div class="reveal">
+        <span class="kicker">Nuestra historia</span><h2 class="t" style="font-size:1.9rem">De un local pequeño a una pyme conocida</h2>
+        <div class="timeline">
+          <div class="hito"><b>2011 · El primer taller</b><p>Marcos abre un local de 40 m² reparando bicicletas del barrio.</p></div>
+          <div class="hito"><b>2015 · Llega la tienda</b><p>Se amplía el local y se empiezan a vender bicis y accesorios.</p></div>
+          <div class="hito"><b>2019 · Alquiler y rutas</b><p>Nace el servicio de alquiler y las primeras excursiones guiadas.</p></div>
+          <div class="hito"><b>2023 · Boom eléctrico</b><p>Las bicis eléctricas triplican las ventas, y el papeleo también.</p></div>
+          <div class="hito"><b>2026 · Hora de digitalizar</b><p>La plantilla decide modernizar todos sus procesos. ¡Empieza el proyecto!</p></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="kicker">El equipo</span><h2 class="t" style="font-size:1.9rem">Personas que pedalean juntas</h2>
+        <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:20px">
+          <div class="card equipo"><div class="av" style="background:#1f7a5c">🧔</div><h3>Marcos Ríos</h3><small>Fundador y gerente</small><p>Mecánico de vocación. Desconfía del ordenador.</p></div>
+          <div class="card equipo"><div class="av" style="background:#f28c28">👩</div><h3>Lucía Navas</h3><small>Tienda y ventas</small><p>Quiere vender online desde ya.</p></div>
+          <div class="card equipo"><div class="av" style="background:#4a90d9">🧑‍🔧</div><h3>Iván Soto</h3><small>Jefe de taller</small><p>Sueña con partes de trabajo en tablet.</p></div>
+          <div class="card equipo"><div class="av" style="background:#a35bd6">👩‍💼</div><h3>Marta Gil</h3><small>Administración</small><p>Sufre con facturas y hojas de cálculo.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGO -->
+<section id="catalogo" class="alt">
+  <div class="wrap">
+    <div class="reveal"><span class="kicker">Tienda online (demo)</span><h2 class="t">Catálogo con buscador, filtros y carrito</h2>
+    <p class="sub">Prototipo funcional de lo que será la futura tienda online. Los productos viven en un array de JavaScript; en proyectos posteriores pasarán a una base de datos.</p></div>
+    <div class="barra-tools">
+      <input type="search" id="buscar" placeholder="🔍  Buscar producto…" aria-label="Buscar">
+      <select id="orden" aria-label="Ordenar"><option value="rel">Destacados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="val">Mejor valorados</option></select>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="grid g4" id="productos"></div>
+  </div>
+</section>
+
+<!-- TALLER -->
+<section id="taller">
+  <div class="wrap taller">
+    <div class="reveal">
+      <span class="kicker">Taller</span><h2 class="t">Sigue tu reparación en tiempo real</h2>
+      <p class="sub" style="margin-bottom:20px">Hoy el cliente tiene que llamar para saber si su bici está lista. Con un sistema de seguimiento, lo consulta desde casa.</p>
+      <form id="formTaller" style="display:grid;gap:12px">
+        <input id="codigo" placeholder="Código de reparación, p. ej. PD-1042" aria-label="Código de reparación" autocomplete="off">
+        <button class="btn btn-v" type="submit">Consultar estado</button>
+      </form>
+      <p class="ayuda" style="margin-top:12px;font-size:.88rem;color:var(--muted)">Prueba con: <code>PD-1042</code> <code>PD-1043</code> <code>PD-1044</code> <code>PD-1045</code></p>
+      <ul class="lista-serv">
+        <li><span>🔩 Puesta a punto básica</span><b>25 €</b></li>
+        <li><span>🛞 Cambio de cubierta o cámara</span><b>12 €</b></li>
+        <li><span>⚙️ Revisión de frenos y cambios</span><b>35 €</b></li>
+        <li><span>🔋 Diagnóstico bici eléctrica</span><b>40 €</b></li>
+      </ul>
+    </div>
+    <div class="card reveal" id="estadoCard">
+      <h3 style="font-size:1.3rem">Estado de la reparación</h3>
+      <p id="estadoTxt" style="margin-top:8px">Introduce un código para ver cómo va tu bicicleta.</p>
+      <div class="resultado" id="resultado">
+        <div class="pasos" id="pasos"></div>
+        <div style="background:var(--bg2);border-radius:14px;padding:16px;margin-top:20px" id="detalle"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALQUILER -->
+<section id="alquiler" class="alt">
+  <div class="wrap">
+    <div class="reveal"><span class="kicker">Alquiler</span><h2 class="t">Calcula el precio de tu alquiler</h2>
+    <p class="sub">Calculadora interactiva: la base de un futuro sistema de reservas online con pago integrado.</p></div>
+    <div class="alq">
+      <div class="card reveal">
+        <label class="l" style="margin-top:0">1. Elige tu bicicleta</label>
+        <div class="opts" id="tipos"></div>
+        <label class="l" for="dias">2. Días de alquiler: <b id="diasTxt">3</b></label>
+        <input type="range" id="dias" min="1" max="14" value="3">
+        <label class="l">3. Extras</label>
+        <div class="extras" id="extras"></div>
+        <label class="l" for="fecha">4. Fecha de inicio</label>
+        <input type="date" id="fecha">
+      </div>
+      <div class="resumen reveal">
+        <h3>Resumen de tu reserva</h3>
+        <div id="filas"></div>
+        <div class="total" id="totalAlq">0 €</div>
+        <small id="ahorro" style="color:#c9efe0"></small>
+        <button class="btn btn-p" style="width:100%;justify-content:center;margin-top:18px" id="reservar">Reservar ahora</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUTAS -->
+<section id="rutas">
+  <div class="wrap">
+    <div class="center reveal"><span class="kicker">Rutas guiadas</span><h2 class="t">Salidas en grupo, plazas limitadas</h2>
+    <p class="sub">Inscríbete en una ruta y mira cómo se ocupan las plazas. Hoy esto se gestiona a mano; mañana será automático.</p></div>
+    <div class="grid g3" id="listaRutas"></div>
+  </div>
+</section>
+
+<!-- DIGITAL -->
+<section id="digital" class="alt">
+  <div class="wrap">
+    <div class="center reveal"><span class="kicker">El punto de partida</span><h2 class="t">Diagnóstico de madurez digital</h2>
+    <p class="sub">Valoramos cada área de 0 a 100. En naranja, la situación actual; en verde, el objetivo para final de curso.</p></div>
+    <div class="card radar-box reveal">
+      <div><svg id="radar" viewBox="-60 -20 420 340" role="img" aria-label="Gráfico radar de madurez digital"></svg>
+        <div class="leyenda"><span><i style="background:var(--naranja)"></i>Hoy</span><span><i style="background:var(--verde2)"></i>Objetivo</span></div></div>
+      <div id="barras"></div>
+    </div>
+
+    <div class="center reveal" style="margin-top:90px"><span class="kicker">Procesos</span><h2 class="t">Mapa del proceso de una reparación</h2>
+    <p class="sub">Compara cómo se hace hoy con cómo se hará una vez digitalizado.</p>
+    <div class="sw" id="swFlujo"><button class="act" data-m="hoy">Hoy (manual)</button><button data-m="dig">Digitalizado</button></div></div>
+    <div class="flujo hoy reveal" id="flujo"></div>
+
+    <div class="center reveal" style="margin-top:90px"><span class="kicker">Datos</span><h2 class="t">Cuadro de mando de Pedalea</h2>
+    <p class="sub">Con los datos digitalizados, la gerencia podrá decidir con cifras. Cambia entre la situación actual y la proyectada.</p>
+    <div class="sw" id="swDatos"><button class="act" data-m="base">Situación actual</button><button data-m="dig">Con digitalización</button></div></div>
+    <div class="reveal"><div class="kpis" id="kpis"></div>
+    <div class="grafico"><svg id="grafico" viewBox="0 0 760 300" role="img" aria-label="Ventas mensuales"></svg></div></div>
+
+    <div class="center reveal" style="margin-top:90px"><span class="kicker">Estrategia</span><h2 class="t">Análisis DAFO</h2></div>
+    <div class="dafo reveal">
+      <div class="q d"><h3>🔻 Debilidades</h3><ul><li>Procesos manuales y sin trazabilidad</li><li>Datos de clientes dispersos en papel</li><li>Poca formación digital de la plantilla</li><li>Sin canal de venta online</li></ul></div>
+      <div class="q a"><h3>⚠️ Amenazas</h3><ul><li>Competidores online con precios bajos</li><li>Cumplimiento del RGPD y facturación electrónica</li><li>Riesgo de ciberataques</li><li>Clientes que exigen inmediatez</li></ul></div>
+      <div class="q f"><h3>💪 Fortalezas</h3><ul><li>Marca local con 15 años de confianza</li><li>Taller con mecánicos expertos</li><li>Plantilla joven con ganas de cambiar</li><li>Cuatro líneas de negocio complementarias</li></ul></div>
+      <div class="q o"><h3>🚀 Oportunidades</h3><ul><li>Auge de la bici eléctrica y el cicloturismo</li><li>Ayudas públicas a la digitalización (Kit Digital)</li><li>Posicionamiento local con SEO y Google Maps</li><li>Venta cruzada con datos de clientes</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="wrap">
+    <div class="center reveal"><span class="kicker">Hoja de ruta</span><h2 class="t">Proyectos del curso, trimestre a trimestre</h2>
+    <p class="sub">Marca las tareas conforme las vayáis completando: el progreso se guarda en tu navegador.</p></div>
+    <div class="total-prog reveal"><div style="display:flex;justify-content:space-between;font-weight:700;margin-bottom:6px"><span>Progreso total del curso</span><span id="pTxt">0%</span></div><div class="f"><span id="pBar"></span></div></div>
+    <div class="tabs reveal" id="tabs"></div>
+    <div id="paneles" class="reveal"></div>
+
+    <div class="card reveal" style="margin-top:50px">
+      <h3>🧰 Tecnologías que iremos incorporando</h3>
+      <div class="grid g3" style="margin-top:14px;gap:18px">
+        <div><b style="color:var(--head)">Presencia y ventas</b><div class="tec"><span>WordPress / HTML</span><span>WooCommerce</span><span>Stripe</span><span>Google Analytics</span></div></div>
+        <div><b style="color:var(--head)">Gestión interna</b><div class="tec"><span>CRM (HubSpot)</span><span>ERP (Odoo)</span><span>Facturae</span><span>Google Workspace</span></div></div>
+        <div><b style="color:var(--head)">Datos y seguridad</b><div class="tec"><span>Power BI</span><span>Zapier / n8n</span><span>Copias en la nube</span><span>Autenticación 2FA</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS + FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="center reveal"><span class="kicker">Opiniones</span><h2 class="t">Lo que dicen nuestros clientes</h2></div>
+    <div class="grid g3">
+      <div class="card testi reveal"><div class="estrellas">★★★★★</div><p>“Me arreglaron la bici en un día y con muy buen trato. Ojalá pudiera pedir cita por la web.”</p><b>Carmen R.</b> · cliente del taller</div>
+      <div class="card testi reveal"><div class="estrellas">★★★★★</div><p>“Alquilamos tres bicis para un fin de semana. Genial, pero reservar por teléfono fue un lío.”</p><b>Familia Ortega</b> · turistas</div>
+      <div class="card testi reveal"><div class="estrellas">★★★★☆</div><p>“Fui a la ruta de la sierra, ¡buenísima! Me encantaría ver las próximas salidas en una app.”</p><b>Daniel M.</b> · ciclista aficionado</div>
+    </div>
+    <div class="center reveal" style="margin-top:80px"><span class="kicker">Dudas</span><h2 class="t">Preguntas frecuentes</h2></div>
+    <div style="max-width:780px;margin:auto" class="reveal">
+      <details><summary>¿Pedalea es una empresa real?</summary><p>No, es una empresa ficticia creada para la asignatura de Digitalización. Sus datos, precios y clientes son inventados.</p></details>
+      <details><summary>¿Qué hace esta web exactamente?</summary><p>Es el prototipo base: muestra la empresa y simula la tienda, el taller, el alquiler y las rutas. Todo funciona en tu navegador, sin servidor.</p></details>
+      <details><summary>¿Cómo se podrá ampliar durante el curso?</summary><p>Añadiendo base de datos, pasarela de pago, CRM, facturación, automatizaciones y seguridad, siguiendo la hoja de ruta de arriba.</p></details>
+      <details><summary>¿Se guardan mis datos?</summary><p>Solo en tu navegador (carrito, progreso de tareas y reservas de rutas). No se envía nada a ningún servidor.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap contacto">
+    <div class="reveal">
+      <span class="kicker">Contacto</span><h2 class="t">Hablemos</h2>
+      <p class="sub" style="margin-bottom:24px">Pide cita para el taller, consulta por un alquiler o pregúntanos por las rutas.</p>
+      <div class="dato"><div class="ico">📍</div><div><b>Calle de la Vega, 15</b><br><span style="color:var(--muted)">Granada (dirección ficticia)</span></div></div>
+      <div class="dato"><div class="ico">🕘</div><div><b>Lun–Sáb · 9:30–14:00 y 17:00–20:30</b><br><span style="color:var(--muted)">Domingos: solo rutas</span></div></div>
+      <div class="dato"><div class="ico">✉️</div><div><b>hola@pedalea.example</b><br><span style="color:var(--muted)">958 000 000</span></div></div>
+    </div>
+    <form class="card reveal" id="form" novalidate>
+      <div><label for="nombre">Nombre</label><input id="nombre" autocomplete="name"><div class="err">Escribe tu nombre.</div></div>
+      <div><label for="email">Correo electrónico</label><input id="email" type="email" autocomplete="email"><div class="err">Introduce un correo válido.</div></div>
+      <div><label for="motivo">Motivo</label><select id="motivo"><option>Cita para el taller</option><option>Alquiler de bicicleta</option><option>Ruta guiada</option><option>Información sobre una compra</option></select></div>
+      <div><label for="msg">Mensaje</label><textarea id="msg" rows="4"></textarea><div class="err">Cuéntanos algo (mínimo 10 caracteres).</div></div>
+      <button class="btn btn-p" type="submit" style="justify-content:center">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><div class="logo" style="color:#fff;margin-bottom:10px">🚲 Pedalea<i>.</i></div><p style="max-width:380px">Empresa ficticia creada para la asignatura de Digitalización. Punto de partida de todos los proyectos del curso.</p></div>
+      <div><h4>Secciones</h4><ul><li><a href="#empresa">Empresa</a></li><li><a href="#catalogo">Tienda</a></li><li><a href="#taller">Taller</a></li><li><a href="#alquiler">Alquiler</a></li></ul></div>
+      <div><h4>Proyecto</h4><ul><li><a href="#digital">Diagnóstico</a></li><li><a href="#proyectos">Hoja de ruta</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    </div>
+    <div class="fin">© 2026 Pedalea · Proyecto académico de Digitalización</div>
+  </div>
+</footer>
+
+<!-- CARRITO -->
+<div id="velo"></div>
+<aside id="carrito" aria-label="Carrito de compra">
+  <header><h3>🛒 Tu carrito</h3><button class="ibtn" id="cerrarCar" aria-label="Cerrar">✕</button></header>
+  <div id="items"></div>
+  <div class="pie-car">
+    <div class="tot"><span>Total</span><span id="totCar">0 €</span></div>
+    <small>IVA (21 %) incluido · Envío gratuito desde 100 €</small>
+    <button class="btn btn-p" style="width:100%;justify-content:center" id="pagar">Finalizar compra (demo)</button>
+    <button class="btn btn-s" style="width:100%;justify-content:center;margin-top:8px;border-color:var(--line);color:var(--muted);background:transparent" id="vaciar">Vaciar carrito</button>
+  </div>
+</aside>
+<div id="toast" role="status"></div>
+<button id="subir" aria-label="Volver arriba">↑</button>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const eur=n=>n.toLocaleString("es-ES",{minimumFractionDigits:0,maximumFractionDigits:2})+" €";
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2800)}
+
+/* ===== Tema, menú, scroll ===== */
+const root=document.documentElement;
+function setTema(t){root.dataset.theme=t;$("#tema").textContent=t==="dark"?"☀️":"🌙";store.set("tema",t)}
+setTema(store.get("tema",matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+$("#tema").onclick=()=>setTema(root.dataset.theme==="dark"?"light":"dark");
+$("#burger").onclick=()=>$("#menu").classList.toggle("on");
+$$("#menu a").forEach(a=>a.onclick=()=>$("#menu").classList.remove("on"));
+addEventListener("scroll",()=>{
+  const h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  $("#progreso").style.width=p+"%";$("#subir").classList.toggle("on",h.scrollTop>600);
+  let act="";$$("section[id]").forEach(s=>{if(s.getBoundingClientRect().top<140)act=s.id});
+  $$("#menu a").forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+act));
+},{passive:true});
+$("#subir").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+
+/* Palabra rotatoria */
+const pals=["vender","reparar","alquilar","digitalizar","crecer"];let ip=0;
+setInterval(()=>{const e=$("#palabra");e.style.opacity=0;e.style.transform="translateY(10px)";setTimeout(()=>{ip=(ip+1)%pals.length;e.textContent=pals[ip];e.style.opacity=1;e.style.transform="none"},350)},2400);
+
+/* Revelar + contadores + barras */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target;io.unobserve(el);
+  if(el.classList.contains("reveal"))el.classList.add("in");
+  $$("[data-n]",el).forEach(c=>{const m=+c.dataset.n;let n=0;const p=Math.max(1,Math.round(m/60));const t=setInterval(()=>{n=Math.min(m,n+p);c.textContent=n.toLocaleString("es-ES");if(n>=m)clearInterval(t)},20)});
+  $$(".bar",el).forEach(b=>{$(".a",b).style.width=b.dataset.a+"%";$(".o",b).style.width=b.dataset.o+"%"});
+}),{threshold:.15});
+const observar=()=>$$(".reveal:not(.obs)").forEach(r=>{r.classList.add("obs");io.observe(r)});
+
+/* ===== Catálogo ===== */
+const productos=[
+ {id:1,n:"Urban 700",c:"Ciudad",p:329,s:12,v:4.5,e:"🚲",bg:"#d7efe5",t:"Más vendida"},
+ {id:2,n:"Classic 28 Retro",c:"Ciudad",p:279,s:9,v:4.2,e:"🚴",bg:"#f6e7cf"},
+ {id:3,n:"Trail X5",c:"Montaña",p:749,s:6,v:4.7,e:"🚵",bg:"#dde8f5"},
+ {id:4,n:"Peak Carbon",c:"Montaña",p:1990,s:2,v:4.9,e:"🏔️",bg:"#e6dcf2",t:"Premium"},
+ {id:5,n:"Volt E-City",c:"Eléctricas",p:1499,s:4,v:4.6,e:"⚡",bg:"#fbe6c8",t:"Nueva"},
+ {id:6,n:"Volt E-Trekking",c:"Eléctricas",p:1790,s:3,v:4.8,e:"🔋",bg:"#d7efe5"},
+ {id:7,n:"Casco Aero",c:"Accesorios",p:49,s:40,v:4.4,e:"⛑️",bg:"#f6e7cf"},
+ {id:8,n:"Luces LED recargables",c:"Accesorios",p:24.9,s:55,v:4.3,e:"💡",bg:"#fff1c4"},
+ {id:9,n:"Candado antirrobo",c:"Accesorios",p:39,s:30,v:4.6,e:"🔒",bg:"#dde8f5"},
+ {id:10,n:"Kit de reparación",c:"Accesorios",p:19,s:75,v:4.1,e:"🧰",bg:"#e6dcf2"},
+ {id:11,n:"Maillot técnico",c:"Ropa",p:44,s:25,v:4.2,e:"👕",bg:"#d7efe5"},
+ {id:12,n:"Guantes de gel",c:"Ropa",p:22,s:35,v:4.0,e:"🧤",bg:"#fbe6c8"}
+];
+let cat="Todos";
+$("#filtros").innerHTML=["Todos",...new Set(productos.map(p=>p.c))].map((c,i)=>`<button class="fil${i?"":" act"}" data-c="${c}">${c}</button>`).join("");
+$("#filtros").onclick=e=>{const b=e.target.closest(".fil");if(!b)return;$$(".fil").forEach(x=>x.classList.remove("act"));b.classList.add("act");cat=b.dataset.c;pintar()};
+$("#buscar").oninput=pintar;$("#orden").onchange=pintar;
+const estr=v=>"★".repeat(Math.round(v))+"☆".repeat(5-Math.round(v));
+function pintar(){
+  const q=$("#buscar").value.trim().toLowerCase(),o=$("#orden").value;
+  let l=productos.filter(p=>(cat==="Todos"||p.c===cat)&&p.n.toLowerCase().includes(q));
+  if(o==="asc")l.sort((a,b)=>a.p-b.p);if(o==="desc")l.sort((a,b)=>b.p-a.p);if(o==="val")l.sort((a,b)=>b.v-a.v);
+  $("#productos").innerHTML=l.length?l.map(p=>`<article class="card prod hov"><div class="img" style="background:${p.bg}">${p.t?`<span class="tag">${p.t}</span>`:""}${p.e}</div>
+   <div class="cuerpo"><span class="cat">${p.c}</span><h3>${p.n}</h3><div class="estrellas">${estr(p.v)} <small style="color:var(--muted)">${p.v}</small></div><span class="stock">${p.s<=4?"⚠️ Últimas "+p.s+" unidades":p.s+" en almacén"}</span>
+   <div class="pie"><span class="precio">${eur(p.p)}</span><button class="btn btn-v btn-s" onclick="anadir(${p.id})">Añadir</button></div></div></article>`).join(""):`<div class="vacio">😕 No hay productos que coincidan.</div>`;
+}
+/* Carrito */
+let car=store.get("car",[]);
+const abrir=v=>{$("#carrito").classList.toggle("on",v);$("#velo").classList.toggle("on",v)};
+$("#abrirCar").onclick=()=>abrir(true);$("#cerrarCar").onclick=()=>abrir(false);$("#velo").onclick=()=>abrir(false);
+function anadir(id){const it=car.find(x=>x.id===id),p=productos.find(x=>x.id===id);
+  if(it){if(it.q>=p.s){toast("No hay más unidades en stock");return}it.q++}else car.push({id,q:1});
+  guardar();toast("✅ "+p.n+" añadido al carrito")}
+function cambiar(id,d){const it=car.find(x=>x.id===id),p=productos.find(x=>x.id===id);it.q+=d;if(it.q>p.s)it.q=p.s;if(it.q<=0)car=car.filter(x=>x.id!==id);guardar()}
+function guardar(){store.set("car",car);pintarCar()}
+function pintarCar(){
+  const n=car.reduce((a,x)=>a+x.q,0),tot=car.reduce((a,x)=>a+x.q*productos.find(p=>p.id===x.id).p,0);
+  $("#nCar").textContent=n;$("#totCar").textContent=eur(tot);
+  $("#items").innerHTML=car.length?car.map(x=>{const p=productos.find(y=>y.id===x.id);return `<div class="linea"><div class="mini">${p.e}</div><div><b>${p.n}</b><div class="cant"><button onclick="cambiar(${p.id},-1)">−</button><span>${x.q}</span><button onclick="cambiar(${p.id},1)">+</button></div></div><b>${eur(p.p*x.q)}</b></div>`}).join(""):`<p style="text-align:center;color:var(--muted);padding:50px 0">Tu carrito está vacío 🚲</p>`;
+  $("#pagar").disabled=!car.length;
+}
+$("#vaciar").onclick=()=>{car=[];guardar()};
+$("#pagar").onclick=()=>{const t=car.reduce((a,x)=>a+x.q*productos.find(p=>p.id===x.id).p,0);car=[];guardar();abrir(false);toast("🎉 Pedido simulado por "+eur(t)+". ¡Gracias! (no se ha cobrado nada)")};
+pintar();pintarCar();
+
+/* ===== Taller ===== */
+const pasosT=[["📥","Recibida"],["🔍","Diagnóstico"],["🔧","Reparando"],["✅","Lista"]];
+const reps={
+ "PD-1042":{b:"Urban 700",p:1,t:"Cambio de cámara y puesta a punto",o:"Marcos",f:"Mañana por la tarde",c:"37 €"},
+ "PD-1043":{b:"Trail X5",p:2,t:"Ajuste de frenos de disco",o:"Iván",f:"Jueves por la mañana",c:"35 €"},
+ "PD-1044":{b:"Volt E-City",p:3,t:"Diagnóstico de batería",o:"Iván",f:"Ya puedes pasar a recogerla",c:"40 €"},
+ "PD-1045":{b:"Classic 28 Retro",p:4,t:"Cambio de cadena y plato",o:"Marcos",f:"Lista para recoger",c:"58 €"}
+};
+$$(".ayuda code").forEach(c=>c.onclick=()=>{$("#codigo").value=c.textContent;$("#formTaller").requestSubmit()});
+$("#formTaller").onsubmit=e=>{e.preventDefault();
+  const k=$("#codigo").value.trim().toUpperCase(),r=reps[k],R=$("#resultado");
+  if(!r){R.style.display="none";$("#estadoTxt").textContent="❌ No encontramos ese código. Revisa el resguardo que te dimos en el taller.";return}
+  $("#estadoTxt").innerHTML=`Reparación <b>${k}</b> · <b>${r.b}</b>`;R.style.display="block";
+  $("#pasos").innerHTML=pasosT.map((s,i)=>`<div class="paso ${i+1<r.p?"ok":i+1===r.p?"now":""}"><div class="c">${i+1<r.p?"✓":s[0]}</div>${s[1]}</div>`).join("");
+  $("#detalle").innerHTML=`<p><b>Trabajo:</b> ${r.t}</p><p><b>Mecánico:</b> ${r.o}</p><p><b>Entrega estimada:</b> ${r.f}</p><p><b>Importe:</b> ${r.c}</p>`;
+};
+
+/* ===== Alquiler ===== */
+const tipos=[{n:"Ciudad",e:"🚲",p:12},{n:"Montaña",e:"🚵",p:18},{n:"Eléctrica",e:"⚡",p:30},{n:"Tándem",e:"👫",p:25}];
+const extras=[{n:"Casco",p:2},{n:"Candado",p:1.5},{n:"Cesta",p:1},{n:"Seguro total",p:3}];
+let tSel=0;const exSel=new Set();
+$("#tipos").innerHTML=tipos.map((t,i)=>`<button class="opt${i?"":" act"}" data-i="${i}"><span class="e">${t.e}</span><b>${t.n}</b><br><small>${t.p} €/día</small></button>`).join("");
+$("#extras").innerHTML=extras.map((x,i)=>`<label><input type="checkbox" data-i="${i}"> ${x.n} <small style="color:var(--muted)">(+${x.p} €/día)</small></label>`).join("");
+$("#tipos").onclick=e=>{const b=e.target.closest(".opt");if(!b)return;$$(".opt").forEach(o=>o.classList.remove("act"));b.classList.add("act");tSel=+b.dataset.i;calc()};
+$("#extras").onchange=e=>{const i=+e.target.dataset.i;e.target.checked?exSel.add(i):exSel.delete(i);calc()};
+$("#dias").oninput=calc;
+const hoy=new Date();hoy.setDate(hoy.getDate()+1);$("#fecha").value=hoy.toISOString().slice(0,10);$("#fecha").min=new Date().toISOString().slice(0,10);
+function calc(){
+  const d=+$("#dias").value,t=tipos[tSel];$("#diasTxt").textContent=d+(d===1?" día":" días");
+  const ex=[...exSel].reduce((a,i)=>a+extras[i].p,0),base=t.p*d,exT=ex*d,dto=d>=7?.2:d>=3?.1:0,desc=(base+exT)*dto,tot=base+exT-desc;
+  $("#filas").innerHTML=`<div class="fila"><span>${t.e} Bici ${t.n.toLowerCase()} × ${d}</span><span>${eur(base)}</span></div>`+
+   (exT?`<div class="fila"><span>Extras × ${d}</span><span>${eur(exT)}</span></div>`:"")+
+   (dto?`<div class="fila"><span>Descuento ${dto*100}%</span><span>−${eur(desc)}</span></div>`:"");
+  $("#totalAlq").textContent=eur(tot);
+  $("#ahorro").textContent=dto?`Te ahorras ${eur(desc)} por alquilar ${d} días.`:"Alquila 3 días o más y obtén un 10 % de descuento (7 días: 20 %).";
+}
+calc();
+$("#reservar").onclick=()=>{const f=new Date($("#fecha").value+"T00:00");toast("📅 Reserva simulada: bici "+tipos[tSel].n.toLowerCase()+" desde el "+f.toLocaleDateString("es-ES",{day:"numeric",month:"long"}))};
+
+/* ===== Rutas ===== */
+const rutas=[
+ {n:"Vega y olivares",k:28,d:150,dif:1,p:15,tot:12,fe:"Sáb 24 oct · 9:00",col:["#2fa57c","#9be0c0"],path:"M0 110 C60 60 120 130 200 80 S320 40 400 70"},
+ {n:"Sierra de la Alfaguara",k:46,d:820,dif:3,p:25,tot:10,fe:"Dom 1 nov · 8:30",col:["#4a90d9","#b9d7f5"],path:"M0 120 C60 100 80 30 150 50 S250 120 300 60 S380 30 400 40"},
+ {n:"Costa tropical al atardecer",k:35,d:300,dif:2,p:20,tot:14,fe:"Sáb 7 nov · 17:30",col:["#f28c28","#ffd9a6"],path:"M0 70 C80 120 140 20 220 70 S340 110 400 50"}
+];
+let ocup=store.get("ocup",{0:7,1:8,2:5});
+function pintarRutas(){
+  $("#listaRutas").innerHTML=rutas.map((r,i)=>{const lib=r.tot-ocup[i],pct=ocup[i]/r.tot*100;return `<article class="card ruta hov reveal in">
+  <div class="mapa" style="background:linear-gradient(135deg,${r.col[0]},${r.col[1]})"><svg viewBox="0 0 400 140" preserveAspectRatio="none"><path d="${r.path}" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="3 10" stroke-linecap="round"/><circle cx="0" cy="${r.path.match(/M0 (\d+)/)[1]}" r="9" fill="#fff"/><circle cx="397" cy="55" r="9" fill="#fff" opacity=".8"/></svg></div>
+  <div class="cuerpo"><h3>${r.n}</h3><div class="meta"><span>📏 ${r.k} km</span><span>⛰️ ${r.d} m</span><span>📅 ${r.fe}</span></div>
+  <div style="font-size:.85rem;color:var(--muted)">Dificultad <span class="dif">${[1,2,3].map(n=>`<i class="${n<=r.dif?"on":""}"></i>`).join("")}</span></div>
+  <div class="plazas"><span style="width:${pct}%"></span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center"><div><span class="precio">${r.p} €</span><div class="stock">${lib?lib+" plazas libres":"Completa"}</div></div>
+  <button class="btn btn-v btn-s" ${lib?"":"disabled"} onclick="inscribir(${i})">${lib?"Reservar plaza":"Agotada"}</button></div></div></article>`}).join("");
+}
+function inscribir(i){if(ocup[i]>=rutas[i].tot)return;ocup[i]++;store.set("ocup",ocup);pintarRutas();toast("🏞️ Plaza reservada en «"+rutas[i].n+"»")}
+pintarRutas();
+
+/* ===== Radar y barras ===== */
+const areas=[["Web y marketing",20,85],["Ventas online",5,80],["Gestión de clientes",15,85],["Inventario y compras",30,90],["Facturación",40,95],["Seguridad y datos",25,80]];
+(function(){
+  const N=areas.length,C=150,R=105,pt=(i,v,r=R)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [C+Math.cos(a)*r*v/100,C+Math.sin(a)*r*v/100]};
+  let s="";
+  [25,50,75,100].forEach(l=>s+=`<polygon points="${areas.map((_,i)=>pt(i,l).join(",")).join(" ")}" fill="none" stroke="var(--line)" stroke-width="1"/>`);
+  areas.forEach((a,i)=>{const [x,y]=pt(i,100),[lx,ly]=pt(i,100,R+26);
+    s+=`<line x1="${C}" y1="${C}" x2="${x}" y2="${y}" stroke="var(--line)"/><text x="${lx}" y="${ly}" text-anchor="${lx<C-5?"end":lx>C+5?"start":"middle"}" dominant-baseline="middle" font-size="11" font-weight="600" fill="var(--text)">${a[0]}</text>`});
+  s+=`<polygon points="${areas.map((a,i)=>pt(i,a[2]).join(",")).join(" ")}" fill="color-mix(in srgb,var(--verde2) 25%,transparent)" stroke="var(--verde2)" stroke-width="2.5"/>`;
+  s+=`<polygon points="${areas.map((a,i)=>pt(i,a[1]).join(",")).join(" ")}" fill="color-mix(in srgb,var(--naranja) 35%,transparent)" stroke="var(--naranja)" stroke-width="2.5"/>`;
+  areas.forEach((a,i)=>{const [x,y]=pt(i,a[1]);s+=`<circle cx="${x}" cy="${y}" r="4" fill="var(--naranja)"/>`});
+  $("#radar").innerHTML=s;
+  $("#barras").innerHTML=areas.map(a=>`<div class="bar" data-a="${a[1]}" data-o="${a[2]}"><div class="l"><span>${a[0]}</span><span>${a[1]} → ${a[2]}</span></div><div class="f"><div class="o"></div><div class="a"></div></div></div>`).join("");
+})();
+
+/* ===== Flujo de procesos ===== */
+const flujo=[
+ ["🙋","Cliente","Llama o escribe por WhatsApp","Reserva cita online en la web"],
+ ["📝","Recepción","Se anota en papel","Parte digital con QR en la bici"],
+ ["💶","Presupuesto","Se calcula a mano","Presupuesto automático por tarifas"],
+ ["🔧","Reparación","Sin seguimiento visible","Estados actualizados en tablet"],
+ ["📲","Aviso","Se llama al cliente","Notificación automática"],
+ ["🧾","Cobro","Efectivo y factura manual","Pago online y factura electrónica"]
+];
+function pintarFlujo(m){$("#flujo").className="flujo reveal in "+m;
+  $("#flujo").innerHTML=flujo.map((f,i)=>`<div class="nodo"><div class="e">${f[0]}</div><b>${f[1]}</b><p>${m==="hoy"?f[2]:f[3]}</p></div>${i<flujo.length-1?'<div class="flecha">➜</div>':""}`).join("")}
+$("#swFlujo").onclick=e=>{const b=e.target.closest("button");if(!b)return;$$("#swFlujo button").forEach(x=>x.classList.remove("act"));b.classList.add("act");pintarFlujo(b.dataset.m)};
+pintarFlujo("hoy");
+
+/* ===== Cuadro de mando ===== */
+const meses=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+const base=[18,17,24,31,36,42,48,52,38,30,26,34];
+const crec=[1.05,1.06,1.12,1.18,1.2,1.24,1.26,1.3,1.22,1.18,1.15,1.25];
+function pintarDatos(m){
+  const d=base.map((v,i)=>m==="dig"?+(v*crec[i]).toFixed(1):v),tot=d.reduce((a,b)=>a+b,0),maxV=Math.max(...base.map((v,i)=>v*crec[i]))*1.1;
+  const k=m==="dig"?[["Ventas anuales",eur(Math.round(tot*1000)),"+22 % vs. hoy"],["Citas de taller / mes","310","+35 % con reserva online"],["Reservas de alquiler","1.450","+48 % con web y pago"],["Tiempo administrativo","−12 h/sem","Facturación automática"]]
+   :[["Ventas anuales",eur(Math.round(tot*1000)),"Datos del último ejercicio"],["Citas de taller / mes","230","Gestionadas por WhatsApp"],["Reservas de alquiler","980","Agenda en papel"],["Tiempo administrativo","18 h/sem","Todo manual"]];
+  $("#kpis").innerHTML=k.map(x=>`<div class="kpi"><small>${x[0]}</small><b>${x[1]}</b><span class="d">${x[2]}</span></div>`).join("");
+  const W=760,H=300,pl=44,pb=30,pt=14,bw=(W-pl-10)/12;let s="";
+  [0,.25,.5,.75,1].forEach(g=>{const y=pt+(H-pb-pt)*(1-g);s+=`<line x1="${pl}" x2="${W-10}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${pl-8}" y="${y+4}" text-anchor="end">${Math.round(maxV*g)}k</text>`});
+  d.forEach((v,i)=>{const h=(H-pb-pt)*v/maxV,x=pl+i*bw+bw*.18,y=H-pb-h;
+    s+=`<rect x="${x}" y="${y}" width="${bw*.64}" height="${h}" rx="6" fill="${m==="dig"?"var(--verde2)":"var(--naranja)"}" opacity=".92"><title>${meses[i]}: ${eur(v*1000)}</title></rect><text x="${x+bw*.32}" y="${H-10}" text-anchor="middle">${meses[i]}</text>`});
+  $("#grafico").innerHTML=s}
+$("#swDatos").onclick=e=>{const b=e.target.closest("button");if(!b)return;$$("#swDatos button").forEach(x=>x.classList.remove("act"));b.classList.add("act");pintarDatos(b.dataset.m)};
+pintarDatos("base");
+
+/* ===== Hoja de ruta ===== */
+const trims=[
+ {t:"1.er trim.",n:"Cimientos digitales",tags:["Web","Análisis","Procesos"],ta:["Web corporativa (este proyecto)","Diagnóstico de madurez digital","Mapa de procesos actuales","Análisis DAFO","Identidad digital: dominio y correo profesional"]},
+ {t:"2.º trim.",n:"Vender y relacionarse",tags:["E-commerce","CRM","Reservas"],ta:["Tienda online con carrito y pasarela de pago","CRM con las 1.200 fichas de clientes","Reserva online de citas de taller","Sistema de reservas de alquiler y rutas","Campañas de email marketing"]},
+ {t:"3.er trim.",n:"Gestión interna y datos",tags:["ERP","Automatización","Datos"],ta:["Inventario digital y pedidos a proveedores","Facturación electrónica","Automatización de avisos y tareas","Cuadro de mando con Power BI","Formación digital de la plantilla"]},
+ {t:"4.º trim.",n:"Marketing, seguridad y futuro",tags:["SEO","RGPD","IA"],ta:["Redes sociales y posicionamiento local (SEO)","Ciberseguridad: copias, 2FA y contraseñas","Cumplimiento del RGPD y política de cookies","Chatbot de atención al cliente","Presentación final del proyecto"]}
+];
+let hechas=store.get("hechas",{});
+$("#tabs").innerHTML=trims.map((t,i)=>`<button class="tab${i?"":" act"}" data-i="${i}">${t.t}</button>`).join("");
+$("#paneles").innerHTML=trims.map((t,i)=>`<div class="panel card${i?"":" act"}" data-i="${i}"><h3 style="font-size:1.4rem">${t.n}</h3><div class="tags">${t.tags.map(x=>`<span>${x}</span>`).join("")}</div><div style="margin-top:12px">${t.ta.map((x,j)=>`<label class="tarea" data-k="${i}-${j}"><input type="checkbox"><span>${x}</span></label>`).join("")}</div></div>`).join("");
+$("#tabs").onclick=e=>{const b=e.target.closest(".tab");if(!b)return;$$(".tab").forEach(x=>x.classList.remove("act"));$$(".panel").forEach(x=>x.classList.remove("act"));b.classList.add("act");$(`.panel[data-i="${b.dataset.i}"]`).classList.add("act")};
+$$(".tarea").forEach(t=>{const k=t.dataset.k,c=$("input",t);c.checked=!!hechas[k];t.classList.toggle("hecha",c.checked);
+  c.onchange=()=>{hechas[k]=c.checked;t.classList.toggle("hecha",c.checked);store.set("hechas",hechas);prog()}});
+function prog(){const tot=$$(".tarea").length,ok=$$(".tarea input:checked").length,p=Math.round(ok/tot*100);$("#pBar").style.width=p+"%";$("#pTxt").textContent=p+"% ("+ok+" de "+tot+")"}
+prog();
+
+/* ===== Formulario ===== */
+$("#form").onsubmit=e=>{e.preventDefault();
+  const v=[[$("#nombre"),$("#nombre").value.trim().length>1],[$("#email"),/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($("#email").value)],[$("#msg"),$("#msg").value.trim().length>=10]];
+  let ok=true;v.forEach(([el,b])=>{el.parentElement.querySelector(".err").style.display=b?"none":"block";if(!b)ok=false});
+  if(!ok)return;
+  const lista=store.get("mensajes",[]);lista.push({n:$("#nombre").value,m:$("#motivo").value,f:new Date().toISOString()});store.set("mensajes",lista);
+  e.target.reset();toast("📨 ¡Mensaje enviado! (demo: no sale de tu navegador)")};
+
+observar();
+</script>
 </body>
 </html>
